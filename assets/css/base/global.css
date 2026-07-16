@@ -1,0 +1,43 @@
+body{
+
+    font-family:var(--font-family);
+
+    background:var(--background);
+
+    color:var(--text-primary);
+
+    transition:var(--transition);
+
+}
+
+.container{
+
+    width:min(var(--container-width),90%);
+
+    margin:auto;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.flex{
+
+    display:flex;
+
+}
+
+.grid{
+
+    display:grid;
+
+}
+
+.section{
+
+    padding:60px 0;
+
+}
