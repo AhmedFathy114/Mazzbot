@@ -1,78 +1,91 @@
 :root {
-    /* Primary */
-    --primary: #5b5ceb;
-    --primary-light: #eef2ff;
-    --primary-dark: #4338ca;
+   /* ===========================
+       COLORS
+    =========================== */
 
-    /* Status */
-    --success: #22c55e;
-    --warning: #f59e0b;
-    --danger: #ef4444;
-    --info: #3b82f6;
+   --primary: #6366f1;
+   --primary-light: #eef2ff;
+   --primary-dark: #4f46e5;
 
-    /* Background */
-    --bg-color: #f8fafc;
-    --surface-color: #ffffff;
-    --sidebar-bg: #ffffff;
-    --navbar-bg: #ffffff;
+   --secondary: #8b5cf6;
 
-    /* Text */
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-muted: #94a3b8;
+   --success: #22c55e;
+   --warning: #f59e0b;
+   --danger: #ef4444;
+   --info: #3b82f6;
 
-    /* Border */
-    --border-color: #e2e8f0;
+   --background: #f8fafc;
+   --surface: #ffffff;
 
-    /* Hover */
-    --hover-color: #f1f5f9;
+   --sidebar-bg: #ffffff;
+   --navbar-bg: #ffffff;
 
-    /* Shadow */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 10px 35px rgba(0, 0, 0, 0.12);
+   --text-primary: #1e293b;
+   --text-secondary: #64748b;
+   --text-muted: #94a3b8;
 
-    /* Radius */
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 18px;
-    --radius-xl: 24px;
-    --radius-circle: 50%;
+   --border: #e2e8f0;
 
-    /* Font */
-    --font-family: "Poppins", sans-serif;
+   /* ===========================
+       TYPOGRAPHY
+    =========================== */
 
-    /* Font Size */
-    --fs-xs: 12px;
-    --fs-sm: 14px;
-    --fs-md: 16px;
-    --fs-lg: 18px;
-    --fs-xl: 22px;
-    --fs-2xl: 28px;
-    --fs-3xl: 36px;
+   --font-family: "Poppins", sans-serif;
 
-    /* Font Weight */
-    --fw-normal: 400;
-    --fw-medium: 500;
-    --fw-semibold: 600;
-    --fw-bold: 700;
+   --fs-xs: 12px;
+   --fs-sm: 14px;
+   --fs-md: 16px;
+   --fs-lg: 18px;
+   --fs-xl: 22px;
+   --fs-2xl: 28px;
+   --fs-3xl: 36px;
 
-    /* Spacing */
-    --space-xs: 4px;
-    --space-sm: 8px;
-    --space-md: 16px;
-    --space-lg: 24px;
-    --space-xl: 32px;
-    --space-2xl: 48px;
-    --space-3xl: 64px;
+   --fw-regular: 400;
+   --fw-medium: 500;
+   --fw-semibold: 600;
+   --fw-bold: 700;
 
-    /* Layout */
-    --sidebar-width: 270px;
-    --navbar-height: 75px;
-    --container-width: 1200px;
+   /* ===========================
+       SPACING
+    =========================== */
 
-    /* Transition */
-    --transition-fast: 0.2s ease;
-    --transition: 0.3s ease;
-    --transition-slow: 0.5s ease;
+   --space-xs: 4px;
+   --space-sm: 8px;
+   --space-md: 16px;
+   --space-lg: 24px;
+   --space-xl: 32px;
+   --space-2xl: 48px;
+
+   /* ===========================
+       BORDER RADIUS
+    =========================== */
+
+   --radius-sm: 8px;
+   --radius-md: 12px;
+   --radius-lg: 18px;
+   --radius-xl: 24px;
+   --radius-round: 999px;
+
+   /* ===========================
+       SHADOWS
+    =========================== */
+
+   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+   --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
+   --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.12);
+
+   /* ===========================
+       TRANSITIONS
+    =========================== */
+
+   --transition: 0.3s ease;
+
+   /* ===========================
+       LAYOUT
+    =========================== */
+
+   --sidebar-width: 260px;
+   --navbar-height: 75px;
+
+   --container-width: 1200px;
 }

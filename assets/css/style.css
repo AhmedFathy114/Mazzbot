@@ -1,0 +1,59 @@
+/* ===========================
+   BASE
+=========================== */
+
+@import url("./base/reset.css");
+@import url("./base/variables.css");
+@import url("./base/typography.css");
+@import url("./base/animations.css");
+@import url("./base/global.css");
+
+
+/* ===========================
+   COMPONENTS
+=========================== */
+
+@import url("./components/buttons.css");
+@import url("./components/inputs.css");
+@import url("./components/cards.css");
+@import url("./components/modal.css");
+@import url("./components/toast.css");
+@import url("./components/progress.css");
+@import url("./components/table.css");
+@import url("./components/badges.css");
+@import url("./components/loader.css");
+
+
+/* ===========================
+   LAYOUT
+=========================== */
+
+@import url("./layout/app-layout.css");
+@import url("./layout/navbar.css");
+@import url("./layout/sidebar.css");
+@import url("./layout/footer.css");
+
+
+/* ===========================
+   THEMES
+=========================== */
+
+@import url("./themes/light.css");
+@import url("./themes/dark.css");
+
+
+/* ===========================
+   PAGES
+=========================== */
+
+@import url("./pages/landing.css");
+@import url("./pages/login.css");
+@import url("./pages/register.css");
+@import url("./pages/medical-setup.css");
+
+@import url("./pages/dashboard.css");
+@import url("./pages/medicines.css");
+@import url("./pages/habits.css");
+@import url("./pages/profile.css");
+@import url("./pages/report.css");
+@import url("./pages/emergency.css");
