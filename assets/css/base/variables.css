@@ -78,7 +78,7 @@
        TRANSITIONS
     =========================== */
 
-   --transition: 0.3s ease;
+   --transition: .3s cubic-bezier(.4,0,.2,1)ك
 
    /* ===========================
        LAYOUT
