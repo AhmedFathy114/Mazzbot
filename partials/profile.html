@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/brands.min.css">
+    <title>Mazzbot</title>
+</head>
+<body>
+
+    <section class="profile-grid">
+        <!--=========== header section========= -->
+ <section class="profile-header">
+
+          <div class="profile-user">
+        <div class="profile-image">
+            <img src="../assets/images/client2.jpg" alt="Profile">
+
+            <button class="camera-btn">
+                <i class="fa-solid fa-camera"></i>
+            </button>
+        </div>
+        <div class="profile-info">
+            <h1>Menna Mohammed</h1>
+            <p>Premium Health Member since May 2023</p>
+            <div class="profile-status">
+                <span class="status active">
+                    Active Profile
+                </span>
+                <span class="status verified">
+                    Verified Identity
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <button class="edit-profile">
+        <i class="fa-solid fa-pen"></i>
+        Edit Profile
+    </button>
+    </section>
+<!-- =============personal card================ -->
+    <section class="personal-card">
+
+       <div class="personal-header">
+        <div class="personal-icon">
+            <i class="fa-regular fa-address-card"></i>
+        </div>
+        <h2>Personal Info</h2>
+    </div>
+    <div class="personal-item">
+        <div class="personal-content">
+            <span>AGE</span>
+            <h3>25 Years</h3>
+        </div>
+
+        <div class="item-icon">
+            <i class="fa-solid fa-cake-candles"></i>
+        </div>
+    </div>
+
+    <div class="personal-item">
+        <div class="personal-content">
+            <span>BLOOD TYPE</span>
+            <h3>A+</h3>
+        </div>
+        <div class="item-icon blood">
+            <i class="fa-solid fa-droplet"></i>
+        </div>
+    </div>
+    <div class="personal-row">
+        <div class="personal-small-card">
+            <span>HEIGHT</span>
+            <h3>165 cm</h3>
+        </div>
+        <div class="personal-small-card">
+            <span>WEIGHT</span>
+            <h3>60 kg</h3>
+        </div>
+    </div>
+    </section>
+<!-- =========medical history============ -->
+
+    <section class="medical-card">
+        <div class="medical-header">
+        <div class="medical-icon">
+            <i class="fa-solid fa-shield-heart"></i>
+        </div>
+        <h2>Medical History</h2>
+    </div>
+
+    <div class="medical-content">
+
+        <div class="medical-column">
+            <h4>Chronic Diseases</h4>
+            <div class="medical-tags">
+                <span class="medical-tag danger">
+                    <i class="fa-solid fa-circle"></i>
+                    Hypertension
+                </span>
+                <span class="medical-tag gray">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Diabetes
+                </span>
+            </div>
+        </div>
+        <div class="medical-column">
+            <h4>Allergies</h4>
+            <div class="medical-tags">
+                <span class="medical-tag warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Penicillin
+                </span>
+                <span class="medical-tag warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Seafood
+                </span>
+            </div>
+        </div>
+    </div>
+    </section>
+
+<!-- ================caregiver-card=================== -->
+    <section class="caregiver-card">
+      
+    <div class="caregiver-header">
+        <div class="caregiver-title">
+            <div class="caregiver-icon">
+                <i class="fa-solid fa-user-group"></i>
+            </div>
+            <h2>Caregiver Information</h2>
+        </div>
+        <button class="add-btn">
+            <i class="fa-solid fa-plus"></i>
+            Add Secondary
+        </button>
+    </div>
+
+    <div class="caregiver-grid">
+
+        <div class="caregiver-column">
+            <div class="caregiver-item">
+                <div class="info-icon">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <div class="info-content">
+                    <span>Primary Caregiver</span>
+                    <h3>Ahmed Mohammed</h3>
+                    <p>Brother</p>
+                </div>
+            </div>
+            <div class="caregiver-item">
+                <div class="info-icon">
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div class="info-content">
+                    <span>Email Address</span>
+                    <h3>ahmed@example.com</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="caregiver-column">
+            <div class="caregiver-item">
+                <div class="info-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="info-content">
+                    <span>Phone Number</span>
+                    <h3>+20 01012345678</h3>
+                    <p class="online">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Reachable
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert-box">
+        <div class="alert-text">
+            <i class="fa-regular fa-bell"></i>
+            <p>Ahmed receives alerts if you miss a critical dose.</p>
+        </div>
+
+        <div class="toggle-switch active">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+    </section>
+<!-- ===========account-card================ -->
+    <section class="account-card">
+ <div class="account-header">
+        <div class="account-title">
+            <div class="account-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            <h2>Account Settings</h2>
+        </div>
+    </div>
+    <div class="account-actions">
+        <button class="action-btn export-btn">
+            <i class="fa-solid fa-file-arrow-down"></i>
+            Export Medical Report
+        </button>
+        <button class="action-btn password-btn">
+            <i class="fa-solid fa-lock"></i>
+            Change Password
+        </button>
+        <button class="action-btn danger-btn">
+            <i class="fa-solid fa-trash"></i>
+            Deactivate Account
+        </button>
+    </div>
+</section>
+    <script src="../assets/js/pages/profile.js"></script>
+
+</body>
+</html>
+<!-- 
+
+
+   
+   <section class="profile-header">
+    <div class="profile-left">
+        <div class="profile-image">
+            <img src="../assets/images/client2.jpg" alt="profile">
+            <button class="camera-btn">
+                <i class="fa-solid fa-camera"></i>
+            </button>
+        </div>
+        <div class="profile-content">
+            <h1>Menna Mohammed</h1>
+            <p>Premium Health Member since May 2023</p>
+            <div class="profile-status">
+                <span class="active-status">
+                    Active Profile
+                </span>
+                <span class="verify-status">
+                    Verified Identity
+                </span>
+            </div>
+        </div>
+    </div>
+    <button class="edit-profile">
+        <i class="fa-solid fa-pen"></i>
+        Edit Profile
+    </button>
+</section>
+
+    <section class="profile-layout">
+    <aside class="left-column">
+        <div class="personal-card">
+    <div class="personal-header">
+        <div class="personal-icon">
+            <i class="fa-regular fa-address-card"></i>
+        </div>
+        <h2>Personal Info</h2>
+    </div>
+
+   <div class="personal-item">
+    <div class="personal-item-content">
+        <span>AGE</span>
+        <h3>25 Years</h3>
+    </div>
+    <i class="fa-solid fa-cake-candles"></i>
+</div>
+
+    <div class="personal-item">
+    <div class="personal-item-content">
+        <span>BLOOD TYPE</span>
+        <h3>A+</h3>
+    </div>
+    <i class="fa-solid fa-droplet blood-icon"></i>
+</div>
+
+    <div class="personal-row">
+        <div class="personal-small-card">
+            <span>HEIGHT</span>
+            <h3>165 cm</h3>
+        </div>
+        <div class="personal-small-card">
+            <span>WEIGHT</span>
+            <h3>60 kg</h3>
+        </div>
+    </div>
+</div>
+    </aside>
+
+ <div class="right-column">
+
+      
+<section class="medical-card">
+    <div class="medical-header">
+        <div class="medical-icon">
+            <i class="fa-solid fa-shield-heart"></i>
+        </div>
+        <h2>Medical History</h2>
+    </div>
+    <div class="medical-body">
+     
+        <div class="medical-column">
+            <h4>Chronic Diseases</h4>
+            <div class="medical-tags">
+                <span class="medical-tag danger">
+                    <i class="fa-solid fa-circle"></i>
+                    Hypertension
+                </span>
+                <span class="medical-tag gray">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Diabetes
+                </span>
+            </div>
+        </div>
+      
+        <div class="medical-column">
+            <h4>Allergies</h4>
+            <div class="medical-tags-row">
+                <span class="medical-tag warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Penicillin
+                </span>
+                <span class="medical-tag warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Seafood
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+       
+<section class="caregiver-card">
+    <div class="caregiver-header">
+
+        <div class="caregiver-title">
+
+            <div class="caregiver-icon">
+                <i class="fa-solid fa-user-group"></i>
+            </div>
+
+            <h2>Caregiver Information</h2>
+
+        </div>
+
+        <a href="#" class="add-caregiver">
+            <i class="fa-solid fa-plus"></i>
+            Add Secondary
+        </a>
+
+    </div>
+
+    <div class="caregiver-content">
+        <div class="caregiver-left">
+            <div class="caregiver-info">
+                <div class="info-icon">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <div>
+                    <span>Primary Caregiver</span>
+                    <h3>Ahmed Mohammed</h3>
+                    <p>Brother</p>
+                </div>
+            </div>
+            <div class="caregiver-info">
+                <div class="info-icon">
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div>
+                    <span>Email Address</span>
+                    <h3>ahmed@example.com</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="caregiver-right">
+            <div class="caregiver-info">
+                <div class="info-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <div>
+                    <span>Phone Number</span>
+                    <h3>+20 01012345678</h3>
+                    <p class="online">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Reachable
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert-box">
+        <div class="alert-left">
+            <i class="fa-regular fa-bell"></i>
+            <p>
+                Ahmed receives alerts if you miss a critical dose.
+            </p>
+        </div>
+      <div class="toggle-switch active">
+    <div class="toggle-circle"></div>
+</div>
+
+    </div>
+
+</section>
+    </div>
+    </section>
+   
+     <section class="account-card">
+
+    <div class="account-header">
+
+        <div class="account-title">
+
+            <div class="account-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+
+            <h2>Account Settings</h2>
+
+        </div>
+
+    </div>
+
+    <div class="account-actions">
+
+        <button class="action-btn export-btn">
+            <i class="fa-solid fa-file-arrow-down"></i>
+            Export Medical Report
+        </button>
+
+        <button class="action-btn password-btn">
+            <i class="fa-solid fa-lock"></i>
+            Change Password
+        </button>
+
+        <button class="action-btn danger-btn">
+            <i class="fa-solid fa-trash"></i>
+            Deactivate Account
+        </button>
+
+    </div>
+
+
+
+
+
+
+-->

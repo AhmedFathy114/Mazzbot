@@ -3,10 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/brands.min.css">
+    <title>Mazzbot</title>
 </head>
 <body>
-    
+
+    <!--============ Header ==============-->
+   <header class="navbar">
+    <div class="container flex nav-content">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+              <i class="fa-solid fa-briefcase-medical"></i>
+            </div>
+            <span class="logo-text">  Mazzbot  </span>
+        </a>
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul class="nav-list flex">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link ">Home</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+               
+            </ul>
+        </nav>
+        <a href="#start" class="btn btn-primary nvy">  Get Started   </a>
+        <!-- Mobile Menu -->
+            <button class="menu-toggle" aria-label="Open Menu">  
+               <i class="fa-solid fa-bars-staggered"></i>  </button>
+    </div>
+</header>
+<div class="overlay"></div>
+<div class="mobile-menu">
+    <button class="close-menu">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li>
+            <a href="#start" class="btn btn-primary">
+                Get Started
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- =========================================================== -->
+    <main>
+        <!--============== Hero ================= -->
+        <section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+            <!-- Left Side -->
+            <div class="hero-text">
+                <span class="hero-badge">
+                   <i class="fa-solid fa-capsules"></i> SMART HEALTH COMPANION
+                </span>
+
+                <h1 class="hero-title">
+                    Smart<span> Medication</span>&
+                   Health Assistant
+                </h1>
+
+                <p class="hero-description">
+                    Never miss a dose again. Mazzbot helps you manage your medications,
+                    track your health, and stay connected with your caregivers using
+                    intelligent reminders .
+                </p>
+                <div class="btn hero-buttons">
+                    <a href="#start" class="btn btn-primary">
+                        Get Started
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        Learn More
+                    </a>
+
+                </div>
+                <div class="hero-users">
+                    <div class="users-images">
+                        <img src="assets/images/doctord.jpg" alt="">
+                        <img src="assets/images/client.jpg" alt="">
+                        <img src="assets/images/client2.jpg" alt="">
+                    </div>
+                    <div class="users-info">
+                        <h4>10k+</h4> <span>Trusted Users</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="hero-image">
+                <img class="ropot"  src="assets/images/hero-lo.png" alt="Robot">
+          <div class="floating-card card-top">
+    <div class="card-icon">
+        <i class="fa-solid fa-pills"></i>
+    </div>
+    <div>
+        <h4>Today's Dose</h4>
+        <span>Completed</span>
+    </div>
+    </div>
+
+    <div class="floating-card card-left">
+          <div class="card-icon">
+        <i class="fa-solid fa-heart-pulse"></i>
+    </div>
+
+    <div class="card-content">
+        <h4>Heart Rate</h4>
+        <span>72 BPM</span>
+    </div>
+
+    </div>
+
+    <div class="floating-card card-bottom">
+        <div class="card-icon">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+
+    <div class="card-content">
+        <h4>AI Assistant</h4>
+        <span>Always Active</span>
+    </div>
+    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =========================================================== -->
+<!--==================== ABOUT ====================-->
+
+<section class="about section" id="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="assets/images/about.png" alt="About Mazzbot">
+            </div>
+            <div class="about-info">
+                <h2 class="section-title">
+                   About Us
+                </h2>
+                <p class="about-description">
+                    Mazzbot is an intelligent healthcare assistant that helps
+                    users manage medications, receive timely reminders, monitor
+                    their health, and access AI-powered support—all in one
+                    simple and secure platform.
+                </p>
+                <div class="about-boxes">
+                    <div class="about-box">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <div>
+                            <h4>Secure & Private</h4>
+                            <p>Your medical information is always protected.</p>
+                        </div>
+                    </div>
+                    <div class="about-box">
+                        <i class="fa-solid fa-brain"></i>
+                        <div>
+                            <h4>AI Powered</h4>
+                            <p>Receive smart healthcare recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================================================================== -->
+        <!--============ Features============== -->
+        <section class="features section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"> Advanced Care Features</h2>
+            <p class="section-description"> Everything you need to manage medications and stay healthy.  </p>
+                </div>
+        <div class="feature-cards">
+             <article class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-pills"></i>
+                </div>
+                <h3>Medication Reminder</h3>
+                <p>
+                    Never miss a dose with smart reminders and personalized schedules.
+                </p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <h3>Health Monitoring</h3>
+                <p>
+                    Track your health and receive insights about your daily progress.
+                </p>
+            </article>
+            <article class="feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+
+                <h3>AI Assistant</h3>
+
+                <p>
+                    Get instant answers and medication guidance powered by AI.
+                </p>
+
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+                <h3>Doctor Connection</h3>
+                <p>
+                    Share reports and communicate easily with your healthcare provider.
+                </p>
+            </article>
+
+                </div>
+            </div>
+        </section>
+<!-- =========================================================== -->
+        <!--================ Dashboard Preview ================================-->
+        <section class="dashboard-preview section">
+ <div class="container">
+
+        <div class="dashboard-content">
+
+            <!-- Left -->
+            <div class="dashboard-image">
+                <img src="assets/images/screen.png"
+                     alt="Dashboard">
+            </div>
+            <!-- Right -->
+            <div class="dashboard-text">
+                <h2 class="section-title">
+                    Your Health,
+                    <span>All In One Dashboard</span>
+                </h2>
+
+                <p class="section-description">
+
+                    Monitor medications, appointments, reminders and health
+                    reports from one simple and beautiful dashboard designed
+                    to keep you healthy every day.
+
+                </p>
+
+                <ul class="dashboard-list">
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Smart Medication Tracking
+                    </li>
+
+                    <li>
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        AI Health Recommendations
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Health Reports & Analytics
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Emergency Contact Support
+                    </li>
+
+                </ul>
+                <a href="#" class="btn btn-primary">
+                    Explore Dashboard
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+        </section>
+<!-- ================================================================= -->
+        <!--================ CTA =================-->
+
+<section class="cta section" id="start">
+    <div class="container">
+        <div class="cta-box">
+            <h2>
+                Ready to Take Control of
+                <br>
+                Your Health?
+            </h2>
+            <p>
+                Join thousands of users who simplify medication management
+                with Mazzbot. Start organizing your healthcare today.
+            </p>
+            <div class="cta-buttons">
+                <!-- <a href="#" class="btn btn-primary">
+                    Get Started Free
+                </a> -->
+                <a href="#" class="btn btn-outline">
+                    Get Started Free
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+<!-- ===================================================================== -->
+  <!--=============== Footer ===============-->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-content">
+            <div class="footer-about">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-briefcase-medical"></i>
+                    </div>
+                    <span class="logo-text">
+                        Mazzbot
+                    </span>
+                </a>
+                <p>
+                    Your smart healthcare companion that helps you
+                    manage medications, track your health, and stay safe
+                    every day.
+                </p>
+                <div class="social-links">
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+
+                    <li><a href="#features">Features</a></li>
+
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>
+                    Subscribe to receive health tips and product updates.
+                </p>
+                <form>
+                    <input
+                        type="email"
+                        placeholder="Your Email">
+                    <button class="btn btn-primary">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> © 2026 Mazzbot. All rights reserved.     </p>
+              <p> Made with   <i class="fa-solid fa-heart"></i> for healthier lives.   </p>
+        </div>
+    </div>
+</footer>
+
+    <script src="assets/js/pages/landing.js"></script>
+
 </body>
 </html>
