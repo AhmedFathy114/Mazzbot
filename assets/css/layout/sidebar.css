@@ -1,0 +1,171 @@
+/* ================================================
+   SIDEBAR — Left Navigation Panel
+   ================================================
+   Fixed to the left edge on desktop.
+   Slides in from the left on mobile.
+
+   Dark mode is handled automatically:
+   --sidebar-bg overridden in themes/dark.css
+   ================================================ */
+
+
+/* --- Main sidebar container --- */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;   /* used for mobile slide-in */
+}
+
+
+/* ===== LOGO AREA ===== */
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.sidebar-logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--fs-md);
+    flex-shrink: 0;
+}
+
+.sidebar-logo-text {
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+}
+
+
+/* ===== NAVIGATION LINKS ===== */
+
+.sidebar-nav {
+    flex: 1;
+    padding: var(--space-md) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;  /* scroll if links overflow */
+}
+
+/* Each link row */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 12px var(--space-md);
+    margin: 0 var(--space-sm);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Icon — fixed width keeps all icons aligned */
+.sidebar-link i {
+    width: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* Hover */
+.sidebar-link:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Active — added by router.js when you're on this page */
+.sidebar-link.active {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-weight: var(--fw-semibold);
+}
+
+
+/* ===== FOOTER (Theme toggle + Logout) ===== */
+
+.sidebar-footer {
+    padding: var(--space-md);
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    flex-shrink: 0;
+}
+
+/* Shared styles for both footer buttons */
+.sidebar-theme-btn,
+.sidebar-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 10px 12px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    font-family: var(--font-family);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    color: var(--text-secondary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-theme-btn i,
+.sidebar-logout-btn i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Theme button */
+.sidebar-theme-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Logout button — red tint on hover */
+.sidebar-logout-btn:hover {
+    background-color: #fef2f2;
+    color: var(--danger);
+}
+
+
+/* ================================================
+   MOBILE (768px and below)
+   ================================================ */
+@media (max-width: 768px) {
+
+    /* Sidebar starts off-screen on mobile */
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    /* app.js adds this class when the hamburger is clicked */
+    .sidebar.sidebar-open {
+        transform: translateX(0);
+    }
+}

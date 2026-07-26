@@ -1,0 +1,125 @@
+/* ================================================
+   APP LAYOUT — Main Grid Structure (app.html)
+   ================================================
+   Controls the overall shell:
+   [Sidebar fixed on left] + [Main area fills the rest]
+
+   Variables used (from base/variables.css):
+   --sidebar-width : 260px
+   --navbar-height : 75px
+   --background    : page background color
+   ================================================ */
+
+
+/* --- Outer wrapper: puts sidebar and main side by side --- */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+
+/* --- Right side: stacks navbar (top) and content (below) --- */
+.app-main {
+    flex: 1;                           /* take up all remaining width */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-left: var(--sidebar-width); /* leave space for the fixed sidebar */
+    transition: margin-left 0.3s ease;
+}
+
+
+/* --- The page content area (partials are injected here) --- */
+.app-content {
+    flex: 1;
+    padding: var(--space-lg);
+    margin-top: var(--navbar-height);  /* push below the fixed navbar */
+    min-height: calc(100vh - var(--navbar-height));
+}
+
+
+/* --- Loading spinner shown while fetching a partial --- */
+.content-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+
+/* --- Placeholder shown when a partial file is empty / not built yet --- */
+.page-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    gap: var(--space-md);
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.page-placeholder i {
+    font-size: 3rem;
+    color: var(--primary);
+}
+
+.page-placeholder h2 {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.page-placeholder p {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+
+/* --- Error state --- */
+.page-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    color: var(--danger);
+    font-size: var(--fs-md);
+}
+
+
+/* --- Mobile overlay: dark backdrop behind open sidebar --- */
+.sidebar-overlay {
+    display: none;                     /* hidden on desktop */
+    position: fixed;
+    inset: 0;                          /* covers entire viewport */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.overlay-visible {
+    opacity: 1;
+}
+
+
+/* ================================================
+   MOBILE (768px and below)
+   ================================================ */
+@media (max-width: 768px) {
+
+    /* Content takes full width — sidebar floats above it */
+    .app-main {
+        margin-left: 0;
+    }
+
+    /* Enable the overlay on mobile */
+    .sidebar-overlay {
+        display: block;
+    }
+}
