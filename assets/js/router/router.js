@@ -2,25 +2,24 @@
    ROUTER.JS — Client-Side Page Router
    ================================================
 
-   WHAT IS A ROUTER?
-   Instead of loading a new HTML file every time you
-   click a link, the router fetches just the "partial"
-   HTML for that page and drops it inside #content.
-   This makes the app feel fast (no full page reloads).
+الراوتر ده بيعمل ايه؟
+   بدل ما تعمل تحميل لصفحة HTML جديدة كل مرة تدوس على لينك،
+   الراوتر بيجيب بس الـ"partial" بتاع الصفحة دي
+   وبيحطه جوه #content.
+   ده بيخلي التطبيق حاسس إنه سريع (من غير ما الصفحة تتحمل من الأول تاني).
 
-   HOW DOES NAVIGATION WORK HERE?
-   We use "hash routing" — the URL looks like:
+   التنقل هنا بيشتغل ازاي؟
+   احنا بنستخدم "hash routing" — يعني الرابط بيبقى شكله كده:
        app.html#dashboard
        app.html#medicines
-   When the hash changes, this router loads the right page.
+   لما الـ hash يتغير، الراوتر ده هو اللي بيحمّل الصفحة الصح.
 
-   HOW TO ADD A NEW PAGE:
-   1. Add a new entry to the ROUTES object below.
-   2. Create the partial file in /partials/
-   3. Create a JS file in /assets/js/pages/
-   4. Add a <script> tag for it in app.html (before app.js)
-   5. Add a link in the sidebar inside app.html
-
+   ازاي تضيف صفحة جديدة؟
+   1. ضيف entry جديد في الـ ROUTES object تحت.
+   2. اعمل ملف الـ partial في /partials/
+   3. اعمل ملف JS في /assets/js/pages/
+   4. ضيف <script> tag ليه في app.html (قبل app.js)
+   5. ضيف لينك في الـ sidebar جوه app.html
    ================================================ */
 
 
@@ -67,6 +66,7 @@ const DEFAULT_ROUTE = 'dashboard';
            }
        };
    The router calls .init() after injecting the HTML.
+   "ده برضو كان ترشيح من كلود، انا كنت هخليه يعملها onclick و هتعامل معاها كلينك عادي"
    ------------------------------------------------ */
 const PAGE_MODULES = {
     dashboard : () => window.DashboardPage,
@@ -80,17 +80,7 @@ const PAGE_MODULES = {
 
 /* ================================================
    navigate(pageName)
-
-   The main function. Call it with a page name like:
-       navigate('dashboard');
-
-   It will:
-   1. Show a loading spinner in #content
-   2. Fetch the partial HTML file
-   3. Inject it into #content
-   4. Call the page's init() function (if it exists)
-   5. Update the active link in the sidebar
-   6. Update the page title in the navbar
+ "علشان كدة بنحط اسامي ال pages مظبوطة في ال partials"
    ================================================ */
 async function navigate(pageName) {
 
@@ -104,7 +94,7 @@ async function navigate(pageName) {
 
     const contentEl = document.getElementById('content');
 
-    // Step 1 — Show loading spinner while we fetch
+    // 1- show spiner
     contentEl.innerHTML = `
         <div class="content-loader">
             <i class="fa-solid fa-spinner fa-spin"></i>
@@ -112,7 +102,7 @@ async function navigate(pageName) {
     `;
 
     try {
-        // Step 2 — Fetch the partial HTML file
+        //2- Fetch the partial HTML file
         const response = await fetch(route.partial);
 
         if (!response.ok) {
@@ -123,15 +113,16 @@ async function navigate(pageName) {
 
         const html = await response.text();
 
-        // Step 3 — Check if the partial is empty (not built yet)
+        // 3- Check if the partial is empty كما هو الوضع حاليا يعني
+        // و لو حد عنده طريقة احسن يهندل الايرور ده ok
         if (!html.trim()) {
             showPlaceholder(contentEl, route.title);
         } else {
-            // Inject the partial's HTML into #content
+            // Inject the page عادي
             contentEl.innerHTML = html;
         }
 
-        // Step 4 — Run the page's init() if it exists
+        // run the page's init()
         const getModule = PAGE_MODULES[pageName];
         if (getModule) {
             const pageModule = getModule();
@@ -141,7 +132,7 @@ async function navigate(pageName) {
         }
 
     } catch (error) {
-        // Network error or fetch failed
+        // ده لو فيه network error و كان اقتراح ai برضو
         console.error(`[Router] Failed to load page "${pageName}":`, error);
         contentEl.innerHTML = `
             <div class="page-error">
@@ -151,14 +142,16 @@ async function navigate(pageName) {
         `;
     }
 
-    // Step 5 — Highlight the active sidebar link
+    // 5- Highlight the active sidebar page
     setActiveLink(pageName);
 
-    // Step 6 — Update the navbar title
+    // 6- Update the navbar title
     const titleEl = document.getElementById('pageTitle');
     if (titleEl) {
         titleEl.textContent = route.title;
     }
+
+    // ديه مفروض لما نخليه responsive تتشال علشان مش هيبقي فيه title اصلا بس لسه مفكرتش ازاي
 }
 
 

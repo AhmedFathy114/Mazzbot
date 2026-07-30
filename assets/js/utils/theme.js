@@ -1,76 +1,69 @@
 /* ================================================
-   THEME.JS — Dark / Light Mode Toggle
+   THEME.JS — تبديل الوضع الداكن / الفاتح
    ================================================
 
-   HOW IT WORKS:
-   - We add data-theme="dark" to the <html> element
-     when dark mode is on.
-   - The CSS in themes/dark.css targets [data-theme="dark"]
-     and overrides all the color variables automatically.
-   - We save the user's preference in localStorage so
-     it's remembered the next time they open the app.
+   - بنضيف data-theme="dark" على الـ <html> tag
+     لما الدارك مود يكون شغال.
+   - الـ CSS بتاعة themes/dark.css بتستهدف [data-theme="dark"]
+     وبتغير كل الألوان لوحدها.
+   - بنحفظ اختيار المستخدم في localStorage عشان
+     يفضل متذكره لما يفتح التطبيق تاني.
 
    ================================================ */
 
 
-/* ================================================
-   applyTheme(theme)
-   Applies either "dark" or "light" to the page.
-   Called on page load and when the user toggles.
-   ================================================ */
-function applyTheme(theme) {
+/* applyTheme(theme)
+   بتطبق "dark" أو "light" على الصفحة.
+   بتتنادى أول ما الصفحة تفتح، وكمان لما المستخدم يدوس على الزرار */
+   function applyTheme(theme) {
     const themeIcon  = document.getElementById('themeIcon');
     const themeLabel = document.getElementById('themeLabel');
 
     if (theme === 'dark') {
-        // Add the dark attribute — dark.css takes over from here
+        // بنضيف الـ attribute — وبعدين dark.css هي اللي بتتصرف
         document.documentElement.setAttribute('data-theme', 'dark');
 
-        // Update the button icon and label
+        // نغير شكل الأيقونة والنص بتاع الزرار
         if (themeIcon)  themeIcon.className   = 'fa-solid fa-sun';
         if (themeLabel) themeLabel.textContent = 'Light Mode';
 
     } else {
-        // Remove the attribute to go back to light mode
+        // نشيل الـ attribute عشان نرجع للوضع الفاتح
         document.documentElement.removeAttribute('data-theme');
 
-        // Update the button icon and label
+        // نغير شكل الأيقونة والنص تاني
         if (themeIcon)  themeIcon.className   = 'fa-solid fa-moon';
         if (themeLabel) themeLabel.textContent = 'Dark Mode';
     }
 }
 
 
-/* ================================================
-   toggleTheme()
-   Switches between dark and light.
-   Saves the new preference to localStorage.
-   ================================================ */
+/* toggleTheme()
+   بتبدل بين الدارك والدارك... يعني بين dark و light.
+
+   وبتحفظ الاختيار الجديد في localStorage */
 function toggleTheme() {
-    // Check what the current theme is
+    // نشوف ايه الثيم الحالي
     const currentTheme = document.documentElement.getAttribute('data-theme');
 
-    // Flip it
+    // نقلبه
     const newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
 
-    // Save and apply
+    // نحفظ ونطبق
     localStorage.setItem('mazzbot-theme', newTheme);
     applyTheme(newTheme);
 }
+//و التعامل طبعا DOM
 
-
-/* ================================================
-   initTheme()
-   Reads saved preference from localStorage and
-   applies it. Also wires up the toggle button.
-   Call this once from app.js.
-   ================================================ */
+/* initTheme()
+بت initialize الليلة ديه كلها اصلا و مربوطة في فايل ال App   
+*/
 function initTheme() {
-    // Read saved theme, default to 'light' if nothing saved
+    // نجيب الثيم المحفوظ، ولو مفيش حاجة نستخدم 'light'
     const savedTheme = localStorage.getItem('mazzbot-theme') || 'light';
     applyTheme(savedTheme);
 
-    // Wire up the theme toggle button in the sidebar
+    // نربط زرار تبديل الثيم اللي في الـ sidebar
     const themeBtn = document.getElementById('themeToggle');
     if (themeBtn) {
         themeBtn.addEventListener('click', toggleTheme);

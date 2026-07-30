@@ -183,8 +183,7 @@ window.DashboardPage = {
                 badge.className = 'badge badge-success';
                 badge.textContent = 'Taken';
             }
-
-            // Change button to checkmark
+    
             buttonEl.className = 'btn-check taken-btn';
             buttonEl.disabled = true;
             buttonEl.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -196,10 +195,8 @@ window.DashboardPage = {
     },
 
 
-    /**
-     * updateMedsCountUI()
-     * Updates the stat card counter e.g. "3 / 4" and progress bar width.
-     */
+    //updateMedsCountUI()
+    
     updateMedsCountUI() {
         const medsCountEl = document.getElementById('medsTakenCount');
         const progressFill = document.getElementById('medsProgressFill');
@@ -217,7 +214,7 @@ window.DashboardPage = {
 
     /**
      * setupTipRotator()
-     * Attaches click handler to "Another Tip" button.
+     * علشان ي cycle ال tips
      */
     setupTipRotator() {
         const nextTipBtn = document.getElementById('nextTipBtn');
