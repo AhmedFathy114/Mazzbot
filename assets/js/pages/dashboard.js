@@ -1,13 +1,6 @@
 /* ================================================
    DASHBOARD.JS — Dashboard Page Controller
    ================================================
-   
-   WHAT THIS FILE DOES:
-   This module handles all the interactive behavior of the Dashboard:
-   1. Dynamic Greeting & Date display
-   2. Interactive Water Tracker (+250ml, +500ml, Reset)
-   3. Interactive Medication Check-off (Take button)
-   4. Health Tip rotater (Next Tip button)
 
    HOW IT RUNS:
    `router.js` automatically calls window.DashboardPage.init()
@@ -53,8 +46,8 @@ window.DashboardPage = {
 
     /**
      * setGreetingAndDate()
-     * Updates greeting based on time of day (Morning/Afternoon/Evening)
-     * and formats today's date (e.g., "Sunday, July 26, 2026").
+     * Updates greeting based on time of day (حاطط تلت اوقات بس حاليا)
+     * and formats today's date is Sunday, July 26, 2026
      */
     setGreetingAndDate() {
         const greetingEl = document.getElementById('dashGreeting');
@@ -88,7 +81,7 @@ window.DashboardPage = {
 
     /**
      * setupWaterTracker()
-     * Attaches click handlers to +250ml, +500ml, and Reset buttons.
+     * Attaches click handlers to +250ml, +500ml, and Reset buttons. ال AI  اللي رشحهالي بامانة
      */
     setupWaterTracker() {
         const waterButtons = document.querySelectorAll('.water-add-btn');
