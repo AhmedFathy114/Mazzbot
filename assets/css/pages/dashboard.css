@@ -23,7 +23,8 @@
 
 /* ================================================
    1. WELCOME CARD
-   ================================================ */
+   ================================================
+   Top banner showing greeting, date, and health status badge. */
 .dash-welcome-card {
     display: flex;
     justify-content: space-between;
@@ -65,7 +66,8 @@
 
 /* ================================================
    2. STAT CARDS GRID
-   ================================================ */
+   ================================================
+   Grid of summary cards (Medicines, Water, Streak, Adherence). */
 .dash-stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -94,7 +96,13 @@
     flex-shrink: 0;
 }
 
-/* Icon background color variants */
+/* ----------------------------------------------------------------------
+   💡 SUGGESTION FOR MAIN / GLOBAL CSS:
+   The icon background variants and utility classes below (.icon-primary, 
+   .icon-info, .icon-warning, .icon-success, .text-success, .bg-info) 
+   are general helper classes. Consider moving them to base/global.css 
+   so other pages can use them without repeating code.
+   ---------------------------------------------------------------------- */
 .icon-primary {
     background-color: var(--primary-light);
     color: var(--primary);
@@ -143,7 +151,7 @@
     color: var(--success) !important;
 }
 
-/* Stat Progress Bar */
+/* Stat Progress Bar component */
 .stat-progress-bar {
     width: 100%;
     height: 6px;
@@ -167,7 +175,8 @@
 
 /* ================================================
    3. TWO COLUMN MAIN LAYOUT
-   ================================================ */
+   ================================================
+   Splits main section into Left Column (1.8fr) and Right Column (1fr). */
 .dash-main-grid {
     display: grid;
     grid-template-columns: 1.8fr 1fr;
@@ -228,7 +237,8 @@
 
 /* ================================================
    4. SCHEDULE LIST
-   ================================================ */
+   ================================================
+   Styles for daily medication doses list items. */
 .schedule-list {
     display: flex;
     flex-direction: column;
@@ -247,8 +257,8 @@
 }
 
 .schedule-item.taken {
-    background-color: #f8fafc;
-    border-color: #e2e8f0;
+    background-color: var(--background);
+    border-color: var(--border);
     opacity: 0.85;
 }
 
@@ -265,7 +275,12 @@
     color: var(--text-primary);
 }
 
-/* Badges */
+/* ----------------------------------------------------------------------
+   💡 SUGGESTION FOR MAIN / GLOBAL CSS:
+   The `.badge` component styles below (.badge, .badge-success, 
+   .badge-warning, .badge-secondary) are reusable UI elements. 
+   Consider moving them to base/global.css or components/badges.css.
+   ---------------------------------------------------------------------- */
 .badge {
     font-size: 10px;
     padding: 2px 6px;
@@ -308,7 +323,7 @@
     margin: 2px 0 0 0;
 }
 
-/* Action Check Button */
+/* Action Check Button for marking medication as taken */
 .btn-check {
     padding: 6px 14px;
     border-radius: var(--radius-sm);
@@ -338,7 +353,8 @@
 
 /* ================================================
    5. WATER LOGGING
-   ================================================ */
+   ================================================
+   Interactive water intake logger component. */
 .water-target-label {
     font-size: var(--fs-xs);
     font-weight: var(--fw-semibold);
@@ -373,7 +389,8 @@
 
 /* ================================================
    6. TIP OF THE DAY CARD
-   ================================================ */
+   ================================================
+   Gradient banner displaying randomized health tips. */
 .dash-tip-card {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
@@ -420,7 +437,8 @@
 
 /* ================================================
    7. QUICK ACTIONS GRID
-   ================================================ */
+   ================================================
+   Grid of shortcut navigation buttons (Add Medicine, Log Habit, etc.). */
 .quick-actions-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -459,6 +477,12 @@
     font-size: var(--fs-md);
 }
 
+/* ----------------------------------------------------------------------
+   💡 SUGGESTION FOR MAIN / GLOBAL CSS:
+   These background tint utility classes (.bg-primary-light, 
+   .bg-secondary-light, .bg-info-light, .bg-danger-light) can be 
+   moved to base/global.css to be shared across all pages.
+   ---------------------------------------------------------------------- */
 .bg-primary-light { background: var(--primary-light); color: var(--primary); }
 .bg-secondary-light { background: #f3e8ff; color: var(--secondary); }
 .bg-info-light { background: #e0f2fe; color: var(--info); }
@@ -467,7 +491,8 @@
 
 /* ================================================
    8. RECENT ACTIVITY TIMELINE
-   ================================================ */
+   ================================================
+   Vertical timeline list showing recent user logs. */
 .activity-timeline {
     display: flex;
     flex-direction: column;
@@ -491,7 +516,6 @@
 }
 
 .bg-success { background-color: var(--success); }
-.bg-info { background-color: var(--info); }
 
 .activity-text {
     display: flex;
@@ -511,8 +535,11 @@
 
 
 /* ================================================
-   RESPONSIVE DESIGN (Tablets & Mobile)
-   ================================================ */
+   9. RESPONSIVE DESIGN (Tablets & Mobile)
+   ================================================
+   Media queries that adjust the layout for small screens:
+   - Below 900px: collapses 2-column grid to 1 single column.
+   - Below 576px: converts items to column layout for mobile. */
 @media (max-width: 900px) {
     .dash-main-grid {
         grid-template-columns: 1fr;
@@ -541,3 +568,4 @@
         text-align: center;
     }
 }
+

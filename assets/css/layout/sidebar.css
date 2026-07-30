@@ -3,9 +3,6 @@
    ================================================
    Fixed to the left edge on desktop.
    Slides in from the left on mobile.
-
-   Dark mode is handled automatically:
-   --sidebar-bg overridden in themes/dark.css
    ================================================ */
 
 
@@ -22,7 +19,7 @@
     flex-direction: column;
     z-index: 100;
     box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease;   /* used for mobile slide-in */
+    transition: transform 0.3s ease;   /* used for mobile slide-in, also an AI suggestion*/
 }
 
 
@@ -65,7 +62,7 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
-    overflow-y: auto;  /* scroll if links overflow */
+    overflow-y: auto;  /* scrollable for convenience */
 }
 
 /* Each link row */
@@ -83,7 +80,7 @@
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Icon — fixed width keeps all icons aligned */
+/* Icon */
 .sidebar-link i {
     width: 20px;
     text-align: center;
