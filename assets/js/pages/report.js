@@ -105,10 +105,10 @@ function renderAdherence() {
 
   const radius = 52;
   const circumference = 2 * Math.PI * radius;
-  const offSet = circumference - (circumference * percentage) / 100;
+  const offset = circumference - (circumference * percentage) / 100;
 
-  // circle.style.strokeDasharray = circumference;
-  // circle.style.strokeDashoffset = offset;
+  adherCircle.style.strokeDasharray = circumference;
+  adherCircle.style.strokeDashoffset = offset;
 }
 
 //for medication
@@ -136,13 +136,13 @@ function createActivity(activity) {
   const colorClass = isTaken ? "green" : "red";
   return `
     <div class="activity-item">
-                        <div class="activity-icon ${colorClass}"><span class="material-symbols-outlined">${icon}</span></div>
-                        <div class="activity-info">
-                            <p class="activity-title">${activity.title}</p>
-                            <p class="activity-time">${activity.time}</p>
-                        </div>
-                    </div>
-    `;
+        <div class="activity-icon ${colorClass}"><span class="material-symbols-outlined">${icon}</span></div>
+        <div class="activity-info">
+            <p class="activity-title">${activity.title}</p>
+            <p class="activity-time">${activity.time}</p>
+        </div>
+    </div>
+  `;
 }
 
 function renderRecentActivities() {
@@ -151,6 +151,25 @@ function renderRecentActivities() {
     .slice(0, 4)
     .map((a) => createActivity(a))
     .join("");
+}
+
+//show history
+
+function showHistory() {
+  const modal = document.getElementById("history-modal");
+  const list = document.getElementById("history-list");
+
+  list.innerHTML = allActivities.map((act) => createActivity(act)).join("");
+
+  modal.style.display = "flex";
+}
+
+function closeHistory() {
+  document.getElementById("history-modal").style.display = "none";
+}
+
+function downloadPDF() {
+  window.print();
 }
 
 function updateTime() {
@@ -162,6 +181,7 @@ function updateTime() {
   document.getElementById("last-updated").textContent =
     `Last updated: Today at ${timeString}`;
 }
+
 document.addEventListener("DOMContentLoaded", function () {
   renderPatient();
   renderStats();
@@ -169,5 +189,19 @@ document.addEventListener("DOMContentLoaded", function () {
   renderMedications();
   renderRecentActivities();
   updateTime();
-});
 
+  document.getElementById("history-btn").addEventListener("click", showHistory);
+  document
+    .getElementById("close-modal")
+    .addEventListener("click", closeHistory);
+  document
+    .getElementById("download-btn")
+    .addEventListener("click", downloadPDF);
+  document
+    .getElementById("history-modal")
+    .addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeHistory();
+      }
+    });
+});

@@ -10,22 +10,31 @@
 </head>
 <body>
 
-    <!-- SIDEBAR-->
-
-     <!-- MAIN CONTENT  -->
     <main class="main-content">
 
         <section class="page-title">
             <h1>Medicines</h1>
             <p>Manage your prescriptions and daily supplements.</p>
         </section>
+        <div class="top-bar">
+            <div class="search-box">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" id="search-input" placeholder="Search medicines..." oninput="renderMedicines(this.value)">
+            </div>
+            <button class="add-btn" onclick="openAddForm()">
+                <span class="material-symbols-outlined">add</span>
+                Add Medicine
+            </button>
+        </div>
 
-        <!-- Panadol Card -->
-        <section class="medicine-card">
-            <!-- <span class="status-badge low-stock">
+        <div class="medicines-container" id="medicines-container">
+
+             <!-- <section class="medicine-card">
+
+            <span class="status-badge low-stock">
                 <span class="material-symbols-outlined">warning</span>
                 Low Stock
-            </span> -->
+            </span>
             <div class="medicine-left">
                 <div class="medicine-icon panadol-icon">
                     <span class="material-symbols-outlined">pill</span>
@@ -62,12 +71,12 @@
             </div>
         </section>
 
-        <!-- Concor Card -->
+        
         <section class="medicine-card">
-            <!-- <span class="status-badge available">
+            <span class="status-badge available">
                 <span class="material-symbols-outlined">check_circle</span>
                 Available
-            </span> -->
+            </span>
             <div class="medicine-left">
                 <div class="medicine-icon concor-icon">
                     <span class="material-symbols-outlined">medication_liquid</span>
@@ -98,12 +107,12 @@
             </div>
         </section>
 
-        <!-- Vitamin D Card -->
+        
         <section class="medicine-card">
-            <!-- <span class="status-badge available">
+            <span class="status-badge available">
                 <span class="material-symbols-outlined">check_circle</span>
                 Available
-            </span> -->
+            </span>
             <div class="medicine-left">
                 <div class="medicine-icon vitamin-icon">
                     <span class="material-symbols-outlined">spa</span>
@@ -132,46 +141,236 @@
                     <span class="material-symbols-outlined">delete</span>
                 </button>
             </div>
-        </section>
+        </section> 
+    -->
 
-        <!-- Bottom Section -->
+        </div>
+
         <section class="bottom-section">
-            <!-- Adherence Overview with SVG Circle -->
             <div class="overview-card">
                 <div class="overview-content">
                     <h2>Adherence Overview</h2>
-                    <p>You've maintained an 85% adherence rate this week.</p>
-                    <p>Keep it up! Taking your Vitamin D consistently will improve your energy levels.</p>
-                    <button class="view-analytics-btn">View Full Analytics</button>
+                    <p id="adherence-message">You've maintained an 85% adherence rate this week.</p>
+                    <p id="adherence-tip">Keep it up! Taking your medicine consistently will improve your health.</p>
                 </div>
-                
-                <!-- SVG Circular Progress -->
                 <div class="progress-circle">
                     <svg viewBox="0 0 140 140">
-                        <!-- Background track -->
                         <circle class="progress-bg" cx="70" cy="70" r="58"></circle>
-                        <!-- Progress fill (85%) -->
-                        <circle class="progress-fill" cx="70" cy="70" r="58"></circle>
+                        <circle class="progress-fill" id="adherence-circle" cx="70" cy="70" r="58"></circle>
                     </svg>
-                    <div class="progress-text">85%</div>
+                    <div class="progress-text" id="adherence-percent">85%</div>
                 </div>
             </div>
-            
-            <!-- Health Tip Card -->
             <div class="tips-card">
                 <div class="tip-icon-wrapper">
                     <span class="material-symbols-outlined">tips_and_updates</span>
                 </div>
                 <h2>Health Tip</h2>
-                <p>Store your Panadol in a cool, dry place below 25°C to maintain its effectiveness. Avoid moisture-prone areas like the bathroom.</p>
-                <a href="#" class="read-guide-link">
+                <p>Store your medicines in a cool, dry place below 25°C to maintain effectiveness. Avoid moisture-prone areas like the bathroom.</p>
+                <!-- <a href="#" class="read-guide-link">
                     Read Storage Guide
                     <span class="material-symbols-outlined">arrow_forward</span>
-                </a>
+                </a> -->
             </div>
+            </section>
         </section>
 
     </main>
+
+    <!-- <div class="modal-overlay" id="info-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="info-title">Medicine Info</h3>
+                <button class="close-btn" onclick="closeModal('info-modal')">&times;</button>
+            </div>
+            <div class="info-section">
+                <h4>Uses</h4>
+                <p id="info-uses">--</p>
+            </div>
+            <div class="info-section">
+                <h4>Side Effects</h4>
+                <p id="info-side-effects">--</p>
+            </div>
+            <div class="info-section">
+                <h4>Warnings</h4>
+                <p id="info-warnings">--</p>
+            </div>
+            <div class="info-section">
+                <h4>Storage</h4>
+                <p id="info-storage">--</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="form-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="form-title">Add Medicine</h3>
+                <button class="close-btn" onclick="closeModal('form-modal')">&times;</button>
+            </div>
+            <form id="medicine-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label>Medicine Name</label>
+                    <input type="text" id="form-name" required placeholder="e.g. Panadol">
+                </div>
+                <div class="form-group">
+                    <label>Dosage</label>
+                    <input type="text" id="form-dosage" required placeholder="e.g. 500mg - 1 tablet">
+                </div>
+                <div class="form-group">
+                    <label>Schedule (times)</label>
+                    <input type="text" id="form-schedule" required placeholder="e.g. 08:00 AM, 08:00 PM">
+                </div>
+                <div class="form-group">
+                    <label>Tablets Remaining</label>
+                    <input type="number" id="form-stock" required placeholder="e.g. 2" min="0">
+                </div>
+                <div class="form-group">
+                    <label>Icon Color</label>
+                    <select id="form-color">
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="orange">Orange</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Uses</label>
+                    <textarea id="form-uses" placeholder="What is this medicine used for?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Side Effects</label>
+                    <textarea id="form-side-effects" placeholder="List side effects..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Warnings</label>
+                    <textarea id="form-warnings" placeholder="Any warnings?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Storage Method</label>
+                    <textarea id="form-storage" placeholder="How to store this medicine?"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('form-modal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Medicine</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="delete-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete Medicine</h3>
+                <button class="close-btn" onclick="closeModal('delete-modal')">&times;</button>
+            </div>
+            <div class="delete-confirm">
+                <p>Are you sure you want to delete <strong id="delete-name">this medicine</strong>?</p>
+                <div class="form-actions">
+                    <button class="btn-secondary" onclick="closeModal('delete-modal')">Cancel</button>
+                    <button class="btn-primary" style="background: var(--danger);" onclick="confirmDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="modal-overlay" id="info-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="info-title">Medicine Info</h3>
+                <button class="close-btn" onclick="closeModal('info-modal')">&times;</button>
+            </div>
+            <div class="info-section">
+                <h4>Uses</h4>
+                <p id="info-uses">--</p>
+            </div>
+            <div class="info-section">
+                <h4>Side Effects</h4>
+                <p id="info-side-effects">--</p>
+            </div>
+            <div class="info-section">
+                <h4>Warnings</h4>
+                <p id="info-warnings">--</p>
+            </div>
+            <div class="info-section">
+                <h4>Storage</h4>
+                <p id="info-storage">--</p>
+            </div>
+        </div>
+    </div>
+
+
+
+     <div class="modal-overlay" id="form-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="form-title">Add Medicine</h3>
+                <button class="close-btn" onclick="closeModal('form-modal')">&times;</button>
+            </div>
+            <form id="medicine-form" onsubmit="saveMedicine(event)">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label>Medicine Name</label>
+                    <input type="text" id="form-name" required placeholder="e.g. Panadol">
+                </div>
+                <div class="form-group">
+                    <label>Dosage</label>
+                    <input type="text" id="form-dosage" required placeholder="e.g. 500mg - 1 tablet">
+                </div>
+                <div class="form-group">
+                    <label>Schedule (times)</label>
+                    <input type="text" id="form-schedule" required placeholder="e.g. 08:00 AM, 08:00 PM">
+                </div>
+                <div class="form-group">
+                    <label>Tablets Remaining</label>
+                    <input type="number" id="form-stock" required placeholder="e.g. 2" min="0">
+                </div>
+                <div class="form-group">
+                    <label>Uses</label>
+                    <textarea id="form-uses" placeholder="What is this medicine used for?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Side Effects</label>
+                    <textarea id="form-side-effects" placeholder="List side effects..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Warnings</label>
+                    <textarea id="form-warnings" placeholder="Any warnings?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Storage Method</label>
+                    <textarea id="form-storage" placeholder="How to store this medicine?"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('form-modal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Medicine</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+     <div class="modal-overlay" id="delete-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete Medicine</h3>
+                <button class="close-btn" onclick="closeModal('delete-modal')">&times;</button>
+            </div>
+            <div class="delete-confirm">
+                <p>Are you sure you want to delete <strong id="delete-name">this medicine</strong>?</p>
+                <div class="form-actions" style="justify-content: center;">
+                    <button class="btn-secondary" onclick="closeModal('delete-modal')">Cancel</button>
+                    <button class="btn-primary" style="background: var(--danger);" onclick="confirmDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/pages/medicines.js"></script>
 
 </body>
 </html>
