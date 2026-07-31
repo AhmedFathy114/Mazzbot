@@ -147,7 +147,7 @@ body {
     /* position: sticky; */
     /* top: 0; */
     /* background: var(--bg-page); */
-    /* z-index: 50; *
+    /* z-index: 50; 
 }
 .page-name {
     font-size: 20px;
@@ -190,7 +190,6 @@ body {
     /* width: calc(100% - var(--sidebar-width)); */
 }
 
-/*   OVERVIEW BAR */
 .overview-bar {
     display: flex;
     justify-content: space-between;
@@ -241,14 +240,12 @@ body {
     font-size: 18px;
 }
 
-/*    GRID LAYOUT   */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 20px;
 }
 
-/*    CARDS  */
 .card {
     background: var(--bg-card);
     border-radius: var(--radius);
@@ -287,7 +284,6 @@ body {
     font-weight: 600;
 }
 
-/*    PATIENT SUMMARY  */
 .patient-summary {
     grid-column: span 8;
 }
@@ -361,8 +357,6 @@ body {
     background: #fef2f2;
     color: var(--danger);
 }
-
-/*    ADHERENCE CARD   */
 .adherence-card {
     grid-column: span 4;
     text-align: center;
@@ -420,7 +414,6 @@ body {
     line-height: 1.5;
 }
 
-/*    STAT CARDS   */
 .stat-card {
     grid-column: span 3;
     background: var(--bg-card);
@@ -496,7 +489,6 @@ body {
     font-size: 16px;
 }
 
-/*   MEDICATION TABLE */
 .medication-table {
     grid-column: span 7;
 }
@@ -583,7 +575,6 @@ tbody td:first-child {
     color: var(--success);
 }
 
-/*    RECENT ACTIVITY */
 .recent-activity {
     grid-column: span 5;
 }
