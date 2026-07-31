@@ -1,0 +1,54 @@
+
+[
+            {
+                "id": 1,
+                "name": "Panadol",
+                "dosage": "500 mg — 1 tablet",
+                "schedule": ["08:00 AM", "08:00 PM"],
+                "stock": 2,
+                "color": "red",
+                "icon": "pill",
+                "status": "low-stock",
+                "takenToday": false,
+                "info": {
+                    "uses": "Relieves mild to moderate pain and reduces fever. Commonly used for headaches, muscle aches, and cold symptoms.",
+                    "sideEffects": "Nausea, stomach upset, rash. Rarely: liver damage with overdose.",
+                    "warnings": "Do not exceed 4g per day. Consult doctor if pain persists more than 3 days.",
+                    "storage": "Store below 25°C in a dry place. Keep away from moisture and direct sunlight."
+                }
+            },
+            {
+                "id": 2,
+                "name": "Concor",
+                "dosage": "5 mg — 1 tablet",
+                "schedule": ["09:00 AM"],
+                "stock": 30,
+                "color": "blue",
+                "icon": "medication_liquid",
+                "status": "available",
+                "takenToday": false,
+                "info": {
+                    "uses": "Treats high blood pressure (hypertension) and certain heart conditions.",
+                    "sideEffects": "Dizziness, fatigue, cold hands/feet, slow heartbeat.",
+                    "warnings": "Do not stop suddenly. May mask symptoms of low blood sugar.",
+                    "storage": "Store at room temperature (15-30°C) in original packaging."
+                }
+            },
+            {
+                "id": 3,
+                "name": "Vitamin D",
+                "dosage": "1000 IU — 1 tablet",
+                "schedule": ["02:00 PM"],
+                "stock": 60,
+                "color": "orange",
+                "icon": "spa",
+                "status": "available",
+                "takenToday": false,
+                "info": {
+                    "uses": "Supports bone health, immune system, and calcium absorption.",
+                    "sideEffects": "Usually well tolerated. High doses may cause nausea or weakness.",
+                    "warnings": "Do not exceed recommended dose without medical supervision.",
+                    "storage": "Keep in a cool, dry place. Protect from light and moisture."
+                }
+            }
+]
