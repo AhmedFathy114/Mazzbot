@@ -1,0 +1,266 @@
+<!-- ============================================================
+     DASHBOARD PARTIAL
+     Injected by router.js into <main id="content"> on app.html
+============================================================ -->
+
+<div class="dashboard-container">
+
+    <!-- ===== WELCOME BANNER ===== -->
+    <section class="dash-welcome-card card">
+        <div class="dash-welcome-text">
+            <h2 id="dashGreeting">Welcome Back! 👋</h2>
+            <p id="dashDate">Here is your daily health overview for today.</p>
+        </div>
+        <div class="dash-welcome-badge">
+            <i class="fa-solid fa-shield-heart"></i>
+            <span>Health Status: <strong>Good</strong></span> <!-- (dummy alert !) -->
+        </div>
+    </section>
+
+    <!-- ===== STAT CARDS GRID ===== -->
+    <section class="dash-stats-grid">
+
+        <!-- Stat 1: Medicines Taken -->
+        <div class="card stat-card">
+            <div class="stat-icon icon-primary">
+                <i class="fa-solid fa-pills"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-label">Medicines Today</span>
+                <h3 class="stat-value" id="medsTakenCount">3 / 4</h3> <!-- (dummy alert !) -->
+                <div class="stat-progress-bar">
+                    <div class="stat-progress-fill" id="medsProgressFill" style="width: 75%;"></div> <!-- (dummy alert !) -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Stat 2: Water Intake -->
+        <div class="card stat-card">
+            <div class="stat-icon icon-info">
+                <i class="fa-solid fa-droplet"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-label">Water Intake</span>
+                <h3 class="stat-value" id="waterAmountText">1,500 / 2,500 ml</h3> <!-- (dummy alert !) -->
+                <div class="stat-progress-bar">
+                    <div class="stat-progress-fill bg-info" id="waterProgressFill" style="width: 60%;"></div> <!-- (dummy alert !) -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Stat 3: Streak -->
+        <div class="card stat-card">
+            <div class="stat-icon icon-warning">
+                <i class="fa-solid fa-fire"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-label">Active Streak</span>
+                <h3 class="stat-value">7 Days</h3> <!-- (dummy alert !) -->
+                <span class="stat-subtext">Keep it up! 🔥</span>
+            </div>
+        </div>
+
+        <!-- Stat 4: Weekly Adherence -->
+        <div class="card stat-card">
+            <div class="stat-icon icon-success">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-label">Weekly Adherence</span>
+                <h3 class="stat-value">92%</h3> <!-- (dummy alert !) -->
+                <span class="stat-subtext text-success"><i class="fa-solid fa-arrow-up"></i> +5% from last week</span> <!-- (dummy alert !) -->
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ===== TWO COLUMN LAYOUT ===== -->
+    <div class="dash-main-grid">
+
+        <!-- ===== LEFT COLUMN ===== -->
+        <div class="dash-col-left">
+
+            <!-- Today's Schedule Card -->
+            <div class="card dash-section-card">
+                <div class="dash-card-header">
+                    <h3><i class="fa-solid fa-calendar-day"></i> Today's Schedule</h3>
+                    <a href="#medicines" class="dash-link-btn">View All</a>
+                </div>
+
+                <div class="schedule-list" id="scheduleList"> <!-- (dummy alert !) entire schedule list below is dummy data -->
+
+                    <!-- Morning Dose -->
+                    <div class="schedule-item taken">
+                        <div class="schedule-time">
+                            <span class="time-text">08:00 AM</span>
+                            <span class="badge badge-success">Taken</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h4>Panadol Extra (500mg)</h4>
+                            <p>1 Pill • After Breakfast</p>
+                        </div>
+                        <button class="btn-check taken-btn" disabled>
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    </div>
+
+                    <!-- Afternoon Dose -->
+                    <div class="schedule-item taken">
+                        <div class="schedule-time">
+                            <span class="time-text">01:30 PM</span>
+                            <span class="badge badge-success">Taken</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h4>Vitamin D3 (1000 IU)</h4>
+                            <p>1 Capsule • With Meal</p>
+                        </div>
+                        <button class="btn-check taken-btn" disabled>
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    </div>
+
+                    <!-- Evening Dose (Pending) -->
+                    <div class="schedule-item pending" id="medItem3">
+                        <div class="schedule-time">
+                            <span class="time-text">07:00 PM</span>
+                            <span class="badge badge-warning">Upcoming</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h4>Omega 3 Fish Oil</h4>
+                            <p>1 Softgel • After Dinner</p>
+                        </div>
+                        <button class="btn-check action-take-btn" id="takeMed3Btn">
+                            Take
+                        </button>
+                    </div>
+
+                    <!-- Night Dose -->
+                    <div class="schedule-item pending" id="medItem4">
+                        <div class="schedule-time">
+                            <span class="time-text">10:00 PM</span>
+                            <span class="badge badge-secondary">Pending</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h4>Magnesium Citrate (200mg)</h4>
+                            <p>1 Tablet • Before Bed</p>
+                        </div>
+                        <button class="btn-check action-take-btn" id="takeMed4Btn">
+                            Take
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Quick Water Tracker Card -->
+            <div class="card dash-section-card">
+                <div class="dash-card-header">
+                    <h3><i class="fa-solid fa-bottle-water"></i> Quick Water Log</h3>
+                    <span class="water-target-label" id="waterStatusLabel">1.5L of 2.5L</span> <!-- (dummy alert !) -->
+                </div>
+
+                <div class="water-tracker-body">
+                    <p class="water-desc">Stay hydrated throughout the day. Tap below to log water intake:</p>
+                    
+                    <div class="water-buttons">
+                        <button class="btn btn-secondary water-add-btn" data-amount="250">
+                            <i class="fa-solid fa-plus"></i> +250 ml (Glass)
+                        </button>
+                        <button class="btn btn-secondary water-add-btn" data-amount="500">
+                            <i class="fa-solid fa-plus"></i> +500 ml (Bottle)
+                        </button>
+                        <button class="btn btn-danger water-reset-btn" id="resetWaterBtn">
+                            <i class="fa-solid fa-rotate-left"></i> Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== RIGHT COLUMN ===== -->
+        <div class="dash-col-right">
+
+            <!-- Health Tip Card -->
+            <div class="card dash-tip-card">
+                <div class="tip-header">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>Tip of the Day</span>
+                </div>
+                <p class="tip-content" id="dailyTipText">
+                    "Take your medications at the same time every day to build a strong habit and maximize efficiency."
+                </p> <!-- (dummy alert !) -->
+                <button class="tip-next-btn" id="nextTipBtn">
+                    <i class="fa-solid fa-arrows-rotate"></i> Another Tip
+                </button>
+            </div>
+
+            <!-- Quick Action Shortcuts Card -->
+            <div class="card dash-section-card">
+                <h3><i class="fa-solid fa-bolt"></i> Quick Actions</h3>
+                
+                <div class="quick-actions-grid">
+                    <a href="#medicines" class="quick-action-item">
+                        <div class="quick-icon bg-primary-light">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <span>Add Medicine</span>
+                    </a>
+
+                    <a href="#habits" class="quick-action-item">
+                        <div class="quick-icon bg-secondary-light">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <span>Log Habit</span>
+                    </a>
+
+                    <a href="#report" class="quick-action-item">
+                        <div class="quick-icon bg-info-light">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                        </div>
+                        <span>PDF Report</span>
+                    </a>
+
+                    <a href="#emergency" class="quick-action-item">
+                        <div class="quick-icon bg-danger-light">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <span>Emergency</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Recent Activity Timeline -->
+            <div class="card dash-section-card">
+                <h3><i class="fa-solid fa-clock-rotate-left"></i> Recent Activity</h3>
+
+                <ul class="activity-timeline"> <!-- (dummy alert !) entire activity list below is dummy data -->
+                    <li class="activity-item">
+                        <span class="activity-dot bg-success"></span>
+                        <div class="activity-text">
+                            <strong>Vitamin D3</strong> logged as taken
+                            <small>01:32 PM</small>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <span class="activity-dot bg-info"></span>
+                        <div class="activity-text">
+                            Logged <strong>500ml water</strong>
+                            <small>11:15 AM</small>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <span class="activity-dot bg-success"></span>
+                        <div class="activity-text">
+                            <strong>Panadol Extra</strong> logged as taken
+                            <small>08:05 AM</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
