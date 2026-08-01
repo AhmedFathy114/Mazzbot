@@ -1,19 +1,574 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MazzBot</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/all.min.css" rel="stylesheet" />
+    <link href="assets/css/brands.min.css" rel="stylesheet" />
+    <title>Mazzbot</title>
 
-    <!-- Redirect to app.html immediately -->
-    <!-- TODO: Replace this with the actual landing page later -->
-    <script>
-        window.location.href = './app.html';
-    </script>
+    <style>
+        /* ==========================================
+   LANDING NAVBAR
+========================================== */
+
+        .landing-navbar {
+            position: sticky;
+            inset: 0 0 auto 0;
+            width: 100%;
+            height: var(--navbar-height);
+            background: var(--navbar-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .landing-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .landing-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+        }
+
+        .landing-logo-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .landing-logo-icon i {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .landing-logo-text {
+            color: var(--primary);
+            font-size: var(--fs-lg);
+            font-weight: var(--fw-bold);
+        }
+
+        .landing-nav {
+            display: flex;
+        }
+
+        .landing-nav-list {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xl);
+            list-style: none;
+        }
+
+        .landing-nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: var(--fs-sm);
+            font-weight: var(--fw-medium);
+            transition: var(--transition);
+        }
+
+        .landing-nav-link:hover,
+        .landing-nav-link.active {
+            color: var(--primary);
+        }
+
+        .landing-nav-link::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transform: translateX(-50%);
+            transition: var(--transition);
+        }
+
+        .landing-nav-link:hover::after,
+        .landing-nav-link.active::after {
+            width: 100%;
+        }
+
+        .landing-theme-toggle {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .landing-theme-toggle:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .landing-menu-toggle {
+            display: none;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-primary);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .landing-menu-toggle:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .landing-mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            height: 100vh;
+            background: var(--surface);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            z-index: 2000;
+            padding: 40px 30px;
+        }
+
+        .landing-mobile-menu.active {
+            right: 0;
+        }
+
+        .landing-mobile-menu ul {
+            list-style: none;
+            margin-top: 60px;
+        }
+
+        .landing-mobile-menu li {
+            margin-bottom: 24px;
+        }
+
+        .landing-mobile-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: var(--fw-semibold);
+        }
+
+        .landing-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1500;
+        }
+
+        .landing-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .landing-close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        @media (max-width: 1100px) {
+            .landing-nav-list {
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .landing-nav {
+                display: none;
+            }
+
+            .landing-theme-toggle {
+                display: none;
+            }
+
+            .landing-menu-toggle {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!--============ Header ==============-->
+    <header class="landing-navbar">
+        <div class="container flex landing-nav-content">
+            <!-- Logo -->
+            <a class="landing-logo" href="index.html">
+                <div class="landing-logo-icon">
+                    <i class="fa-solid fa-briefcase-medical"></i>
+                </div>
+                <span class="landing-logo-text"> Mazzbot </span>
+            </a>
+            <!-- Navigation -->
+            <nav class="landing-nav">
+                <ul class="landing-nav-list flex">
+                    <li class="nav-item">
+                        <a class="landing-nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="landing-nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="landing-nav-link" href="#features">Features</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="landing-theme-toggle" id="themeToggle" type="button">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+            <!-- Mobile Menu -->
+            <button aria-label="Open Menu" class="landing-menu-toggle">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+    <div class="landing-overlay"></div>
+    <div class="landing-mobile-menu">
+        <button class="landing-close-menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li>
+                <a class="btn btn-primary" href="#start"> Get Started </a>
+            </li>
+        </ul>
+    </div>
+    <!-- =========================================================== -->
+    <main>
+        <!--============== Hero ================= -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Left Side -->
+                    <div class="hero-text">
+                        <span class="hero-badge">
+                            <i class="fa-solid fa-capsules"></i> SMART HEALTH COMPANION
+                        </span>
+                        <h1 class="hero-title">
+                            Smart<span> Medication</span>&amp; Health Assistant
+                        </h1>
+                        <p class="hero-description">
+                            Never miss a dose again. Mazzbot helps you manage your
+                            medications, track your health, and stay connected with your
+                            caregivers using intelligent reminders .
+                        </p>
+                        <div class="btn hero-buttons">
+                            <a class="btn btn-primary" href="#start"> Get Started </a>
+                            <a class="btn btn-secondary" href="#"> Learn More </a>
+                        </div>
+                        <div class="hero-users">
+                            <div class="users-images">
+                                <img alt="" src="assets/images/doctord.jpg" />
+                                <img alt="" src="assets/images/client.jpg" />
+                                <img alt="" src="assets/images/client2.jpg" />
+                            </div>
+                            <div class="users-info">
+                                <h4>10k+</h4>
+                                <span>Trusted Users</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Side -->
+                    <div class="hero-image">
+                        <img alt="Robot" class="ropot" src="assets/images/hero-lo.png" />
+                        <div class="floating-card card-top">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-pills"></i>
+                            </div>
+                            <div>
+                                <h4>Today's Dose</h4>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                        <div class="floating-card card-left">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Heart Rate</h4>
+                                <span>72 BPM</span>
+                            </div>
+                        </div>
+                        <div class="floating-card card-bottom">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>AI Assistant</h4>
+                                <span>Always Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =========================================================== -->
+        <!--==================== ABOUT ====================-->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img alt="About Mazzbot" src="assets/images/about.png" />
+                    </div>
+                    <div class="about-info">
+                        <h2 class="section-title">About Us</h2>
+                        <p class="about-description">
+                            Mazzbot is an intelligent healthcare assistant that helps users
+                            manage medications, receive timely reminders, monitor their
+                            health, and access AI-powered support—all in one simple and
+                            secure platform.
+                        </p>
+                        <div class="about-boxes">
+                            <div class="about-box">
+                                <i class="fa-solid fa-user-shield"></i>
+                                <div>
+                                    <h4>Secure &amp; Private</h4>
+                                    <p>Your medical information is always protected.</p>
+                                </div>
+                            </div>
+                            <div class="about-box">
+                                <i class="fa-solid fa-brain"></i>
+                                <div>
+                                    <h4>AI Powered</h4>
+                                    <p>Receive smart healthcare recommendations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================================================================== -->
+        <!--============ Features============== -->
+        <section class="features section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Advanced Care Features</h2>
+                    <p class="section-description">
+                        Everything you need to manage medications and stay healthy.
+                    </p>
+                </div>
+                <div class="feature-cards">
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-pills"></i>
+                        </div>
+                        <h3>Medication Reminder</h3>
+                        <p>
+                            Never miss a dose with smart reminders and personalized
+                            schedules.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3>Health Monitoring</h3>
+                        <p>
+                            Track your health and receive insights about your daily
+                            progress.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h3>AI Assistant</h3>
+                        <p>Get instant answers and medication guidance powered by AI.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <h3>Doctor Connection</h3>
+                        <p>
+                            Share reports and communicate easily with your healthcare
+                            provider.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- =========================================================== -->
+        <!--================ Dashboard Preview ================================-->
+        <section class="dashboard-preview section">
+            <div class="container">
+                <div class="dashboard-content">
+                    <!-- Left -->
+                    <div class="dashboard-image">
+                        <img alt="Dashboard" src="assets/images/screen.png" />
+                    </div>
+                    <!-- Right -->
+                    <div class="dashboard-text">
+                        <h2 class="section-title">
+                            Your Health,
+                            <span>All In One Dashboard</span>
+                        </h2>
+                        <p class="section-description">
+                            Monitor medications, appointments, reminders and health reports
+                            from one simple and beautiful dashboard designed to keep you
+                            healthy every day.
+                        </p>
+                        <ul class="dashboard-list">
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Smart Medication Tracking
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                AI Health Recommendations
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Health Reports &amp; Analytics
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Emergency Contact Support
+                            </li>
+                        </ul>
+                        <a class="btn btn-primary" href="#"> Explore Dashboard </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================================================================= -->
+        <!--================ CTA =================-->
+        <section class="cta section" id="start">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>
+                        Ready to Take Control of
+                        <br />
+                        Your Health?
+                    </h2>
+                    <p>
+                        Join thousands of users who simplify medication management with
+                        Mazzbot. Start organizing your healthcare today.
+                    </p>
+                    <div class="cta-buttons">
+                        <!-- <a href="#" class="btn btn-primary">
+                    Get Started Free
+                </a> -->
+                        <a class="btn btn-outline" href="#"> Get Started Free </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ===================================================================== -->
+    <!--=============== Footer ===============-->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a class="landing-logo" href="#">
+                        <div class="landing-logo-icon">
+                            <i class="fa-solid fa-briefcase-medical"></i>
+                        </div>
+                        <span class="landing-logo-text"> Mazzbot </span>
+                    </a>
+                    <p>
+                        Your smart healthcare companion that helps you manage medications,
+                        track your health, and stay safe every day.
+                    </p>
+                    <div class="social-links">
+                        <a href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Links -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to receive health tips and product updates.</p>
+                    <form>
+                        <input placeholder="Your Email" type="email" />
+                        <button class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Mazzbot. All rights reserved.</p>
+                <p>
+                    Made with <i class="fa-solid fa-heart"></i> for healthier lives.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/pages/landing.js"></script>
+    <script src="../assets//js/utils/theme.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initTheme();
+        });
+    </script>
 </body>
 
 </html>

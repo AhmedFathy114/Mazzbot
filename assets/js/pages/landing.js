@@ -1,29 +1,48 @@
-const menuBtn = document.querySelector(".menu-toggle");
-const closeBtn = document.querySelector(".close-menu");
+/* ==========================================
+   LANDING PAGE
+========================================== */
 
-const mobileMenu = document.querySelector(".mobile-menu");
-const overlay = document.querySelector(".overlay");
+const menuBtn = document.querySelector(".landing-menu-toggle");
+const closeBtn = document.querySelector(".landing-close-menu");
 
-menuBtn.addEventListener("click",()=>{
+const mobileMenu = document.querySelector(".landing-mobile-menu");
+const overlay = document.querySelector(".landing-overlay");
 
-    mobileMenu.classList.add("active");
+/* ==========================
+   OPEN MENU
+========================== */
 
-    overlay.classList.add("active");
+if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
 
-});
+        mobileMenu.classList.add("active");
+        overlay.classList.add("active");
 
-closeBtn.addEventListener("click",()=>{
+    });
+}
 
-    mobileMenu.classList.remove("active");
+/* ==========================
+   CLOSE BUTTON
+========================== */
 
-    overlay.classList.remove("active");
+if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
 
-});
+        mobileMenu.classList.remove("active");
+        overlay.classList.remove("active");
 
-overlay.addEventListener("click",()=>{
+    });
+}
 
-    mobileMenu.classList.remove("active");
+/* ==========================
+   CLICK OUTSIDE
+========================== */
 
-    overlay.classList.remove("active");
+if (overlay) {
+    overlay.addEventListener("click", () => {
 
-});
+        mobileMenu.classList.remove("active");
+        overlay.classList.remove("active");
+
+    });
+}

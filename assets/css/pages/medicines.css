@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-:root {
+/* :root {
     --primary: #6366f1;
     --primary-light: #eef2ff;
     --primary-dark: #4f46e5;
@@ -21,7 +21,7 @@
     --transition: .3s cubic-bezier(.4, 0, .2, 1);
     --fw-medium: 500;
     --fs-sm: 14px;
-}
+} */
 
 * {
     margin: 0;
