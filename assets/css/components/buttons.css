@@ -27,7 +27,7 @@
 }
 
 .btn-primary:hover{
-
+transform: scale(1.06) translatey(-5px);
     background:var(--primary-dark);
 
 }
@@ -40,6 +40,10 @@
 
 }
 
+.btn-secondary:hover{
+    transform: scale(1.06) translatey(-5px);
+    border:1px solid var(--primary-dark);
+}
 .btn-danger{
 
     background:var(--danger);
