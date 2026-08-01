@@ -1,26 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Register | MazzBot</title>
 
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css" />
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
 <body>
+    <div class="login-container register-container">
+        <!-- ================= LEFT SIDE ================= -->
 
-<div class="login-container register-container">
-
-    <!-- ================= LEFT SIDE ================= -->
-
-    <section class="login-left">
-
+        <section class="login-left">
             <div class="login-logo">
                 <div class="login-logo-icon">
                     <i class="fa-solid fa-heart-pulse"></i>
@@ -45,7 +41,6 @@
                         reminders and keep your health records safe in one secure place.
                     </p>
                 </div>
-
             </div>
 
             <div class="login-feature-list">
@@ -84,200 +79,130 @@
             </div>
         </section>
 
-    <!-- ================= RIGHT SIDE ================= -->
+        <!-- ================= RIGHT SIDE ================= -->
 
-    <section class="login-right">
+        <section class="login-right">
+            <div class="card login-card">
+                <div class="login-header">
+                    <h2>Create Account</h2>
 
-        <div class="card login-card">
+                    <p>Join MazzBot and take control of your health.</p>
+                </div>
 
-            <div class="login-header">
+                <form class="register-form" id="registerForm">
+                    <div class="register-name-row">
+                        <div class="input-group">
+                            <label>First Name</label>
 
-                <h2>Create Account</h2>
+                            <div class="login-input">
+                                <i class="fa-regular fa-user"></i>
 
-                <p>
-                    Join MazzBot and take control of your health.
-                </p>
-
-            </div>
-
-            <form class="register-form">
-
-                <div class="register-name-row">
-
-                    <div class="input-group">
-
-                        <label>First Name</label>
-
-                        <div class="login-input">
-
-                            <i class="fa-regular fa-user"></i>
-
-                            <input
-                                class="input"
-                                type="text"
-                                placeholder="First Name">
-
+                                <input class="input" type="text" placeholder="First Name" id="firstName" />
+                            </div>
                         </div>
 
+                        <div class="input-group">
+                            <label>Last Name</label>
+
+                            <div class="login-input">
+                                <i class="fa-regular fa-user"></i>
+
+                                <input class="input" type="text" placeholder="Last Name" id="lastName" />
+                            </div>
+                        </div>
                     </div>
+                    <!-- Email -->
 
                     <div class="input-group">
-
-                        <label>Last Name</label>
+                        <label>Email Address</label>
 
                         <div class="login-input">
+                            <i class="fa-regular fa-envelope"></i>
 
-                            <i class="fa-regular fa-user"></i>
-
-                            <input
-                                class="input"
-                                type="text"
-                                placeholder="Last Name">
-
+                            <input class="input" type="email" placeholder="Enter your email" id="email" />
                         </div>
-
                     </div>
 
-                </div>
-                <!-- Email -->
+                    <!-- Password -->
 
-                <div class="input-group">
+                    <div class="input-group">
+                        <label>Password</label>
 
-                    <label>Email Address</label>
+                        <div class="login-input">
+                            <i class="fa-solid fa-lock"></i>
 
-                    <div class="login-input">
-
-                        <i class="fa-regular fa-envelope"></i>
-
-                        <input
-                            class="input"
-                            type="email"
-                            placeholder="Enter your email">
-
+                            <input class="input" type="password" placeholder="Create a password" id="password" />
+                        </div>
                     </div>
 
-                </div>
+                    <!-- Confirm Password -->
 
-                <!-- Password -->
+                    <div class="input-group">
+                        <label>Confirm Password</label>
 
-                <div class="input-group">
+                        <div class="login-input">
+                            <i class="fa-solid fa-lock"></i>
 
-                    <label>Password</label>
-
-                    <div class="login-input">
-
-                        <i class="fa-solid fa-lock"></i>
-
-                        <input
-                            class="input"
-                            type="password"
-                            placeholder="Create a password">
-
+                            <input class="input" type="password" placeholder="Confirm your password"
+                                id="confirmPassword" />
+                        </div>
                     </div>
 
-                </div>
+                    <!-- Terms -->
 
-                <!-- Confirm Password -->
+                    <div class="register-terms">
+                        <label>
+                            <input type="checkbox" id="agreeTerms" />
 
-                <div class="input-group">
-
-                    <label>Confirm Password</label>
-
-                    <div class="login-input">
-
-                        <i class="fa-solid fa-lock"></i>
-
-                        <input
-                            class="input"
-                            type="password"
-                            placeholder="Confirm your password">
-
+                            I agree to the
+                            <a href="#">Terms of Service</a>
+                            and
+                            <a href="#">Privacy Policy</a>
+                        </label>
                     </div>
 
+                    <!-- Register Button -->
+
+                    <button type="submit" class="btn btn-primary login-btn">
+                        Create Account
+                    </button>
+                </form>
+
+                <!-- Divider -->
+
+                <div class="login-divider">
+                    <span>OR</span>
                 </div>
 
-                <!-- Terms -->
+                <!-- Google -->
 
-                <div class="register-terms">
+                <button class="btn login-google-btn" type="button" id="googleRegister">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
 
-                    <label>
-
-                        <input type="checkbox">
-
-                        I agree to the
-                        <a href="#">Terms of Service</a>
-                        and
-                        <a href="#">Privacy Policy</a>
-
-                    </label>
-
-                </div>
-
-                <!-- Register Button -->
-
-                <button
-                    type="submit"
-                    class="btn btn-primary login-btn">
-
-                    Create Account
-
+                    <span> Continue with Google </span>
                 </button>
 
-            </form>
+                <!-- Login -->
 
-            <!-- Divider -->
+                <p class="register-login-text">
+                    Already have an account?
 
-            <div class="login-divider">
-
-                <span>OR</span>
-
+                    <a href="login.html"> Sign In </a>
+                </p>
             </div>
+        </section>
+    </div>
 
-            <!-- Google -->
-
-            <button
-                class="btn login-google-btn"
-                type="button">
-
-                <img
-                    src="https://www.svgrepo.com/show/475656/google-color.svg"
-                    alt="Google">
-
-                <span>
-
-                    Continue with Google
-
-                </span>
-
-            </button>
-
-            <!-- Login -->
-
-            <p class="register-login-text">
-
-                Already have an account?
-
-                <a href="login.html">
-
-                    Sign In
-
-                </a>
-
-            </p>
-
-        </div>
-
-    </section>
-
-</div>
-
-<script src="../assets//js/utils/theme.js"></script>
+    <script src="../assets//js/utils/theme.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             initTheme();
         });
     </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/config/supabase.js"></script>
+    <script src="../assets/js/pages/register.js"></script>
 </body>
+
 </html>

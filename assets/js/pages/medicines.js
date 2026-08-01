@@ -318,4 +318,8 @@ document.querySelectorAll(".modal-overlay").forEach((overlay) => {
   });
 });
 
-renderMedicines();
+window.MedicinesPage = {
+    init() {
+        renderMedicines();
+    }
+};

@@ -1,4 +1,3 @@
-
 /*==================== profile layout=================== */
 .profile-grid{
     display:grid;
@@ -52,16 +51,16 @@
 .medical-card,
 .caregiver-card,
 .account-card{
-    background:#fff;
+    background: var(--surface);
     border-radius:24px;
-    border:1px solid #ECEAF7;
+    border: 1px solid var(--border);
     padding:2px;
     box-shadow:0 8px 25px rgba(0,0,0,.04);
 
 }
 /* =========header section=========== */
 .profile-header{
-    background:#fff;
+    background: var(--surface);
     border-radius:30px;
     padding:2rem;
     display:flex;
@@ -69,7 +68,7 @@
     align-items:center;
     gap:2rem;
     box-shadow:0 12px 35px rgba(0,0,0,.05);
-    border:1px solid #ece8ff;
+    border: 1px solid var(--border);
     transition:.35s;
 }
 
@@ -224,10 +223,10 @@
 /* ================================== */
 /* personal card */
 .personal-card{
-    background:#fff;
+    background: var(--surface);
     padding:1.6rem;
     border-radius:24px;
-    border:1px solid #ECEAF7;
+    border: 1px solid var(--border);
     box-shadow:0 10px 30px rgba(0,0,0,.05);
     transition:.35s ease;
 }
@@ -249,8 +248,8 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#EEF0FF;
-    color:#5B57F5;
+    background: var(--primary-light);
+    color: var(--primary);
     font-size:22px;
 
 }
@@ -258,13 +257,13 @@
 
     font-size:clamp(1.2rem,1.8vw,1.8rem);
     font-weight:700;
-    color:#1E1E2D;
+    color: var(--text-primary);
 }
 .personal-item{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:#F8F7FD;
+    background: var(--background);
     padding:1.2rem;
     border-radius:18px;
     margin-bottom:1rem;
@@ -273,7 +272,7 @@
 }
 .personal-item:hover{
     transform:translateY(-3px);
-    background:#F1F0FF;
+    background: var(--primary-light);
 
 }
 .personal-content span{
@@ -281,14 +280,14 @@
     display:block;
     font-size:.8rem;
     font-weight:600;
-    color:#8A8A99;
+    color: var(--text-muted);
     letter-spacing:1px;
     margin-bottom:.4rem;
 }
 .personal-content h3{
     font-size:clamp(1.2rem,1.5vw,1.6rem);
     font-weight:700;
-    color:#1E1E2D;
+    color: var(--text-primary);
 
 }
 .item-icon{
@@ -300,7 +299,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#5B57F5;
+    color: var(--primary);
     font-size:1.2rem;
 
 }
@@ -319,7 +318,7 @@
 
 }
 .personal-small-card{
-    background:#F8F7FD;
+    background: var(--background);
     border-radius:18px;
     padding:1.2rem;
     transition:.3s;
@@ -327,20 +326,20 @@
 }
 .personal-small-card:hover{
     transform:translateY(-3px);
-    background:#F1F0FF;
+    background: var(--primary-light);
 }
 
 .personal-small-card span{
     display:block;
     font-size:.8rem;
-    color:#8A8A99;
+    color: var(--text-muted);
     font-weight:600;
     margin-bottom:.4rem;
 
 }
 .personal-small-card h3{
     font-size:clamp(1.1rem,1.3vw,1.5rem);
-    color:#1E1E2D;
+    color: var(--text-primary);
     font-weight:700;
 
 }
@@ -380,10 +379,10 @@
 /* ====================================== */
 /* medical history */
 .medical-card{
-    background:#fff;
+    background: var(--surface);
     padding:1.5rem;
     border-radius:24px;
-    border:1px solid #ECEAF7;
+    border: 1px solid var(--border);
     box-shadow:0 10px 30px rgba(0,0,0,.05);
     transition:.35s ease;
 }
@@ -406,15 +405,15 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#EEF0FF;
-    color:#5B57F5;
+    background: var(--primary-light);
+    color: var(--primary);
     font-size:22px;
 }
 .medical-header h2{
 
     font-size:clamp(1.4rem,2vw,2rem);
     font-weight:700;
-    color:#1E1E2D;
+    color: var(--text-primary);
 }
 .medical-content{
     display:grid;
@@ -507,10 +506,10 @@
 /* =============================== */
 /* caregiver section */
 .caregiver-card{
-    background:#fff;
+    background: var(--surface);
     padding:2rem;
     border-radius:24px;
-    border:1px solid #ECEAF7;
+    border: 1px solid var(--border);
     box-shadow:0 10px 30px rgba(0,0,0,.05);
     transition:.35s ease;
 }
@@ -536,7 +535,7 @@
 }
 .caregiver-title h2{
     font-size:clamp(1.4rem,2vw,2rem);
-    color:#1E1E2D;
+    color: var(--text-primary);
 
 }
 .caregiver-icon{
@@ -544,8 +543,8 @@
     width:55px;
     height:55px;
     border-radius:50%;
-    background:#EEF0FF;
-    color:#5B57F5;
+    background: var(--primary-light);
+    color: var(--primary);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -554,8 +553,8 @@
 .add-btn{
 
     border:none;
-    background:#EEF0FF;
-    color:#5B57F5;
+    background: var(--primary-light);
+    color: var(--primary);
     padding:.9rem 1.3rem;
     border-radius:14px;
     cursor:pointer;
@@ -568,7 +567,7 @@
 }
 .add-btn:hover{
 
-    background:#5B57F5;
+    background: var(--primary);
     color:#fff;
     transform:translateY(-2px);
 
@@ -590,14 +589,14 @@
     display:flex;
     gap:1rem;
     align-items:flex-start;
-    background:#F8F7FD;
+    background: var(--background);
     padding:1.2rem;
     border-radius:18px;
     transition:.3s;
 }
 .caregiver-item:hover{
 
-    background:#F1F0FF;
+    background: var(--primary-light);
     transform:translateY(-3px);
 }
 .info-icon{
@@ -606,17 +605,17 @@
     height:50px;
     flex-shrink:0;
     border-radius:14px;
-    background:#EEF0FF;
+    background: var(--primary-light);
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#5B57F5;
+    color: var(--primary);
     font-size:20px;
 }
 .info-content span{
 
     display:block;
-    color:#8A8A99;
+    color: var(--text-muted);
     font-size:.8rem;
     font-weight:600;
     margin-bottom:.4rem;
@@ -624,11 +623,11 @@
 }
 .info-content h3{
     font-size:clamp(1rem,1.3vw,1.3rem);
-    color:#222;
+    color: var(--text-primary);
     margin-bottom:.3rem;
 }
 .info-content p{
-    color:#777;
+    color: var(--text-secondary);
     font-size:.9rem;
 
 }
@@ -647,7 +646,7 @@
     justify-content:space-between;
     align-items:center;
     gap:1rem;
-    background:#F8F7FD;
+    background: var(--background);
     padding:1rem 1.2rem;
     border-radius:18px;
 }
@@ -658,7 +657,7 @@
 
 }
 .alert-text i{
-    color:#5B57F5;
+    color: var(--primary);
     font-size:20px;
 
 }
@@ -677,7 +676,7 @@
 
     width:24px;
     height:24px;
-    background:#fff;
+    background: var(--surface);
     border-radius:50%;
     position:absolute;
     left:3px;
@@ -686,7 +685,7 @@
 
 }
 .toggle-switch.active{
-    background:#5B57F5;
+    background: var(--primary);
 
 }
 .toggle-switch.active .toggle-circle{
@@ -732,8 +731,8 @@
 /* account section */
 .account-card{
 
-    background:#fff;
-    border:1px solid #ECEAF7;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius:24px;
     padding:1.4rem;
     margin-top:1.2rem;
@@ -762,14 +761,14 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#EEF0FF;
-    color:#5B57F5;
+    background: var(--primary-light);
+    color: var(--primary);
     font-size:22px;
 
 }
 .account-title h2{
     font-size:clamp(1.4rem,2vw,2rem);
-    color:#222;
+    color: var(--text-primary);
 
 }
 .account-actions{
@@ -793,13 +792,13 @@
     transition:.3s;
 }
 .export-btn{
-    background:#EEF0FF;
-    color:#5B57F5;
+    background: var(--primary-light);
+    color: var(--primary);
 
 }
 
 .export-btn:hover{
-    background:#5B57F5;
+    background: var(--primary);
     color:#fff;
 
 }
@@ -868,7 +867,7 @@
 
     font-weight:700;
 
-    color:#222;
+    color: var(--text-primary);
 
 }
 button:focus,

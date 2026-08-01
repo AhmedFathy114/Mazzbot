@@ -1,28 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* :root {
-    --primary: #6366f1;
-    --primary-light: #eef2ff;
-    --primary-dark: #4f46e5;
-    --success: #22c55e;
-    --warning: #f59e0b;
-    --danger: #ef4444;
-    --background: #f8fafc;
-    --surface: #ffffff;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-muted: #94a3b8;
-    --border: #e2e8f0;
-    --sidebar-width: 260px;
-    --radius: 16px;
-    --radius-md: 12px;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
-    --transition: .3s cubic-bezier(.4, 0, .2, 1);
-    --fw-medium: 500;
-    --fs-sm: 14px;
-} */
-
 * {
     margin: 0;
     padding: 0;
@@ -1000,4 +977,190 @@ body {
     font-size: 48px;
     margin-bottom: 16px;
     color: var(--border);
+}
+.bottom-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+    align-items: start;
+}
+
+.medicine-buttons button {
+    border-radius: var(--radius-md);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    border: 0.5px solid;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+}
+
+.medicine-buttons button:hover,
+.add-btn:hover,
+.view-analytics-btn:hover,
+.btn-secondary:hover,
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+
+@media (max-width: 1024px) {
+    .main-content {
+        padding: 20px;
+    }
+
+    .top-bar {
+        gap: 16px;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+
+    .medicine-card {
+        padding: 22px;
+    }
+
+    .medicine-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .medicine-details h2 {
+        font-size: 20px;
+    }
+
+    .status-badge {
+        top: 18px;
+        right: 18px;
+    }
+
+    .bottom-section {
+        grid-template-columns: 1fr;
+    }
+
+    .overview-card,
+    .tips-card {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px 16px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .add-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .medicine-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .medicine-left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .medicine-buttons {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .status-badge {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .overview-card {
+        padding: 24px;
+    }
+
+    .tips-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        padding: 16px;
+    }
+
+    .page-title h1 {
+        font-size: 24px;
+    }
+
+    .top-bar {
+        gap: 12px;
+    }
+
+    .medicine-card {
+        padding: 18px;
+    }
+
+    .medicine-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .medicine-details h2 {
+        font-size: 18px;
+    }
+
+    .time {
+        gap: 12px;
+    }
+
+    .medicine-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .medicine-buttons button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .overview-card {
+        padding: 20px;
+    }
+
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .tips-card {
+        padding: 20px;
+    }
+
+    .modal-content {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+}
+@media (max-width: 900px) {
+    .bottom-section {
+        grid-template-columns: 1fr;
+    }
 }

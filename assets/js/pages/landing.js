@@ -2,47 +2,74 @@
    LANDING PAGE
 ========================================== */
 
-const menuBtn = document.querySelector(".landing-menu-toggle");
-const closeBtn = document.querySelector(".landing-close-menu");
+document.addEventListener("DOMContentLoaded", async () => {
+    const {
+        data: { session },
+    } = await window.supabaseClient.auth.getSession();
 
-const mobileMenu = document.querySelector(".landing-mobile-menu");
-const overlay = document.querySelector(".landing-overlay");
+    if (session) {
+        const {
+            data: { user },
+        } = await window.supabaseClient.auth.getUser();
 
-/* ==========================
-   OPEN MENU
-========================== */
+        const { data: profile } = await window.supabaseClient
 
-if (menuBtn) {
-    menuBtn.addEventListener("click", () => {
+            .from("profiles")
 
-        mobileMenu.classList.add("active");
-        overlay.classList.add("active");
+            .select("setup_completed")
 
-    });
-}
+            .eq("id", user.id)
 
-/* ==========================
-   CLOSE BUTTON
-========================== */
+            .maybeSingle();
 
-if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
+        if (profile?.setup_completed) {
+            window.location.replace("./app.html");
+        } else {
+            window.location.replace("./pages/medical-setup.html");
+        }
 
-        mobileMenu.classList.remove("active");
-        overlay.classList.remove("active");
+        return;
+    }
 
-    });
-}
+    const menuBtn = document.querySelector(".landing-menu-toggle");
+    const closeBtn = document.querySelector(".landing-close-menu");
 
-/* ==========================
-   CLICK OUTSIDE
-========================== */
+    const mobileMenu = document.querySelector(".landing-mobile-menu");
+    const overlay = document.querySelector(".landing-overlay");
 
-if (overlay) {
-    overlay.addEventListener("click", () => {
+    /* ==========================
+  OPEN MENU
+  ========================== */
 
-        mobileMenu.classList.remove("active");
-        overlay.classList.remove("active");
+    if (menuBtn) {
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.add("active");
+            overlay.classList.add("active");
+        });
+    }
 
-    });
-}
+    /* ==========================
+  CLOSE BUTTON
+  ========================== */
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("active");
+            overlay.classList.remove("active");
+        });
+    }
+
+    /* ==========================
+  CLICK OUTSIDE
+  ========================== */
+
+    if (overlay) {
+        overlay.addEventListener("click", () => {
+            mobileMenu.classList.remove("active");
+            overlay.classList.remove("active");
+        });
+    }
+
+    
+});
+

@@ -230,3 +230,13 @@ window.DashboardPage = {
     }
 
 };
+
+async function getData() {
+    const { data, error } = await window.supabaseClient
+    .from("medicines")
+    .select("*");
+
+console.log(data);
+console.log(error);
+}
+getData();
