@@ -1,0 +1,847 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background: var(--background, #f1f5f9);
+    color: var(--text-primary, #0f172a);
+    transition: var(--transition, all 0.3s ease);
+    padding: var(--space-xl, 24px) 0;
+    width: 90%;
+    margin: auto;
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================================
+   2. الهيدر البنفسجي والسلايدر المدمج
+   ======================================================== */
+.co {
+    background-color: var(--primary, #6366f1);
+    color: var(--surface, #ffffff);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xl, 24px) var(--space-2xl, 32px);
+    border-radius: var(--radius-xl, 16px);
+    box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+    max-height: 200px;
+    width: 100%;
+}
+
+.content-side {
+    max-width: 60%;
+}
+
+.title {
+    font-size: var(--fs-2xl, 24px);
+    font-weight: var(--fw-bold, 700);
+    margin-bottom: var(--space-md, 12px);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md, 12px);
+}
+
+.dose {
+    color: var(--primary-light, #e0e7ff);
+}
+
+.description {
+    font-size: var(--fs-md, 15px);
+    font-weight: var(--fw-regular, 400);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.header-slider {
+    width: 32%;
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg, 12px);
+    display: flex;
+    align-items: center;
+}
+
+.slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slide-item {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: var(--space-xs, 4px);
+}
+
+.slide-badge {
+    position: absolute;
+    bottom: 5px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--primary-dark, #3730a3);
+    padding: 3px 10px;
+    border-radius: var(--radius-round, 9999px);
+    font-size: 12px;
+    font-weight: var(--fw-bold, 700);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+/* ========================================================
+   3. سكشن ملخص العافية (Summary)
+   ======================================================== */
+.summary-card {
+    background: var(--surface, #ffffff);
+    padding: var(--space-lg, 16px);
+    border-radius: var(--radius-lg, 12px);
+    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+    margin-top: var(--space-xl, 24px);
+    width: 100%;
+}
+
+.summary-title {
+    font-size: var(--fs-lg, 18px);
+    font-weight: var(--fw-bold, 700);
+    color: var(--text-primary, #0f172a);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm, 8px);
+    margin-bottom: var(--space-lg, 16px);
+}
+
+.plant-icon {
+    color: var(--success, #10b981);
+}
+
+.summary-items {
+    display: flex;
+    gap: var(--space-md, 12px);
+    flex-wrap: wrap;
+}
+
+.summary-item {
+    background: #f8fafc;
+    border: 1px solid var(--border, #e2e8f0);
+    border-radius: var(--radius-md, 8px);
+    padding: var(--space-md, 12px);
+    flex: 1;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm, 8px);
+    text-align: center;
+    transition: var(--transition, all 0.3s ease);
+}
+
+.item-label {
+    font-size: var(--fs-sm, 13px);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--text-secondary, #64748b);
+}
+
+.icon-meds {
+    color: #f43f5e;
+    font-size: var(--fs-xl, 20px);
+}
+
+.icon-water {
+    color: var(--info, #0284c7);
+    font-size: var(--fs-xl, 20px);
+}
+
+.icon-walk {
+    color: var(--success, #10b981);
+    font-size: var(--fs-xl, 20px);
+}
+
+.icon-sleep {
+    color: var(--warning, #f59e0b);
+    font-size: var(--fs-xl, 20px);
+}
+
+.status-icon {
+    font-size: var(--fs-md, 16px);
+    margin-top: var(--space-xs, 4px);
+}
+
+.summary-item.completed {
+    background-color: var(--primary-light, #e0e7ff) !important;
+    border-color: var(--primary, #6366f1);
+}
+
+.main-congrats {
+    background: linear-gradient(135deg, var(--primary, #6366f1), #818cf8);
+    color: white;
+    padding: var(--space-md, 12px) var(--space-lg, 16px);
+    border-radius: var(--radius-md, 8px);
+    text-align: center;
+    font-weight: var(--fw-bold, 700);
+    font-size: var(--fs-md, 15px);
+    margin-bottom: var(--space-lg, 16px);
+    animation: celebrate 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes celebrate {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ========================================================
+   4. الحاويات المرنة والكروت الأساسية (2 الكروت لكل صف)
+   ======================================================== */
+.trackers-grid {
+    display: flex;
+    gap: var(--space-lg, 16px);
+    margin-top: var(--space-xl, 24px);
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.water-card,
+.walk-card,
+.sleep-card,
+.meds-card {
+    background: var(--surface, #ffffff);
+    padding: var(--space-lg, 16px);
+    border-radius: var(--radius-lg, 12px);
+    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+    flex: 1 1 calc(50% - (var(--space-lg, 16px) / 2));
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--space-md, 12px);
+    transition: transform var(--transition, all 0.3s ease), box-shadow var(--transition, all 0.3s ease);
+}
+
+.water-card:hover,
+.walk-card:hover,
+.sleep-card:hover,
+.meds-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+}
+
+.water-header,
+.walk-header,
+.sleep-header,
+.meds-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md, 12px);
+    margin-bottom: var(--space-xs, 4px);
+}
+
+.water-icon {
+    color: var(--info, #0284c7);
+    font-size: var(--fs-2xl, 24px);
+}
+
+.walk-icon {
+    color: var(--success, #10b981);
+    font-size: var(--fs-2xl, 24px);
+}
+
+.sleep-icon {
+    color: var(--warning, #f59e0b);
+    font-size: var(--fs-2xl, 24px);
+}
+
+#current-cups {
+    color: var(--info, #0284c7);
+}
+
+#current-minutes {
+    color: var(--success, #10b981);
+}
+
+.actions-container {
+    display: flex;
+    gap: var(--space-sm, 8px);
+    margin-left: auto;
+}
+
+.add-btn {
+    background: var(--primary, #6366f1);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-round, 9999px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: var(--fs-md, 15px);
+    transition: var(--transition, all 0.3s ease);
+}
+
+.add-btn:hover {
+    background: var(--primary-dark, #3730a3);
+    transform: scale(1.05);
+}
+
+.reset-btn-custom {
+    padding: 0 !important;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-round, 9999px) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cups-container {
+    display: flex;
+    gap: var(--space-md, 12px);
+    margin-top: var(--space-sm, 8px);
+    padding: var(--space-xs, 4px) 0;
+}
+
+.cups-container i {
+    font-size: var(--fs-3xl, 28px);
+    transition: var(--transition, all 0.3s ease);
+}
+
+.cup-filled {
+    color: #3b82f6;
+    filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.2));
+}
+
+.cup-empty {
+    color: var(--border, #e2e8f0);
+}
+
+.walk-body,
+.sleep-body {
+    margin-top: auto;
+    width: 100%;
+}
+
+.walk-add-btn {
+    width: 100%;
+    background: var(--success, #10b981) !important;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm, 8px);
+    border-radius: var(--radius-md, 8px);
+    color: white;
+    font-weight: bold;
+}
+
+.walk-add-btn:hover {
+    background: #16a34a !important;
+}
+
+.sleep-add-btn {
+    width: 100%;
+    background: var(--warning, #f59e0b) !important;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm, 8px);
+    border-radius: var(--radius-md, 8px);
+    color: white;
+    font-weight: bold;
+}
+
+.sleep-add-btn:hover {
+    background: #d97706 !important;
+}
+
+.congrats-message {
+    margin-top: var(--space-md, 12px);
+    padding: var(--space-md, 12px);
+    background-color: var(--primary-light, #e0e7ff);
+    color: var(--primary-dark, #3730a3);
+    border-radius: var(--radius-md, 8px);
+    font-weight: var(--fw-semibold, 600);
+    font-size: var(--fs-md, 15px);
+    text-align: center;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.text-danger {
+    color: #ef4444 !important;
+}
+
+.text-success {
+    color: #10b981 !important;
+}
+
+/* تنسيق كارت الأدوية */
+.doses-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm, 8px);
+    width: 100%;
+}
+
+.dose-item {
+    justify-content: flex-start;
+}
+
+.dose-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dose-time {
+    font-size: 12px;
+    color: var(--text-secondary, #64748b);
+    font-weight: normal;
+}
+
+.dose-item.item-completed .dose-time {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* ستايل فوائد النوم */
+.benefits-container {
+    margin-top: var(--space-md, 12px);
+    border-top: 1px dashed var(--border, #e2e8f0);
+    padding-top: var(--space-sm, 8px);
+}
+
+.benefits-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--primary, #6366f1);
+    font-size: var(--fs-sm, 13px);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 0;
+}
+
+.benefits-toggle-btn:hover {
+    color: var(--primary-dark, #3730a3);
+}
+
+.benefits-text {
+    background-color: var(--background, #f1f5f9);
+    padding: var(--space-sm, 8px);
+    border-radius: var(--radius-sm, 6px);
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary, #64748b);
+}
+
+.benefits-text .hadith {
+    font-weight: bold;
+    color: #047857;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+/* ========================================================
+   5. سكشن كروت الأمراض المزمنة (Horizontal Scroll)
+   ======================================================== */
+.chronic-diseases-section {
+    background: var(--surface, #ffffff);
+    padding: var(--space-xl, 24px);
+    border-radius: var(--radius-lg, 12px);
+    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+    margin-top: var(--space-xl, 24px);
+    width: 100%;
+}
+
+.chronic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg, 16px);
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs, 6px);
+}
+
+.scroll-arrow-btn {
+    background: #f1f5f9;
+    border: 1px solid var(--border, #e2e8f0);
+    color: var(--text-primary, #0f172a);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition, all 0.3s ease);
+}
+
+.scroll-arrow-btn:hover {
+    background: var(--primary, #6366f1);
+    color: white;
+    border-color: var(--primary, #6366f1);
+}
+
+.view-all-link {
+    background: none;
+    border: none;
+    color: var(--primary, #6366f1);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    margin-left: 6px;
+    transition: var(--transition, all 0.3s ease);
+}
+
+.view-all-link:hover {
+    color: var(--primary-dark, #3730a3);
+    transform: translateX(3px);
+}
+
+.disease-cards-track {
+    display: flex;
+    gap: var(--space-md, 12px);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.disease-cards-track::-webkit-scrollbar {
+    height: 6px;
+}
+
+.disease-cards-track::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.disease-cards-track::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.disease-card {
+    flex: 0 0 270px;
+    scroll-snap-align: start;
+    padding: var(--space-lg, 16px) var(--space-md, 12px);
+    border-radius: var(--radius-md, 8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-sm, 8px);
+    transition: transform var(--transition, all 0.3s ease), box-shadow var(--transition, all 0.3s ease);
+}
+
+.disease-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+}
+
+.bg-red {
+    background-color: #fff1f2;
+}
+
+.bg-purple {
+    background-color: #fcf4ff;
+}
+
+.bg-pink {
+    background-color: #fff1f2;
+}
+
+.bg-blue {
+    background-color: #f0f9ff;
+}
+
+.bg-yellow {
+    background-color: #fefce8;
+}
+
+.bg-green {
+    background-color: #f0fdf4;
+}
+
+.disease-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.disease-card-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary, #0f172a);
+}
+
+.icon-diabetes {
+    color: #e11d48;
+    font-size: 20px;
+}
+
+.icon-pressure {
+    color: #a855f7;
+    font-size: 20px;
+}
+
+.icon-heart {
+    color: #f43f5e;
+    font-size: 20px;
+}
+
+.icon-asthma {
+    color: #0284c7;
+    font-size: 20px;
+}
+
+.icon-cholesterol {
+    color: #ca8a04;
+    font-size: 20px;
+}
+
+.icon-kidney {
+    color: #16a34a;
+    font-size: 20px;
+}
+
+.disease-tips-list {
+    padding-left: 18px;
+    color: var(--text-secondary, #64748b);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.disease-tips-list li {
+    margin-bottom: 4px;
+}
+
+.card-tag {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--text-secondary, #64748b);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 3px 8px;
+    border-radius: var(--radius-round, 9999px);
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+/* ========================================================
+   6. كارت التغذية الذكي (Full Width)
+   ======================================================== */
+.nutrition-section {
+    width: 100%;
+    margin-top: var(--space-xl, 24px);
+}
+
+.nutrition-card {
+    background: var(--surface, #ffffff);
+    padding: var(--space-xl, 24px);
+    border-radius: var(--radius-lg, 12px);
+    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg, 16px);
+    transition: transform var(--transition, all 0.3s ease), box-shadow var(--transition, all 0.3s ease);
+}
+
+.nutrition-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+}
+
+.nutrition-icon {
+    color: var(--primary, #6366f1);
+    font-size: var(--fs-2xl, 24px);
+}
+
+.nutrition-box {
+    border: 1px solid var(--border, #e2e8f0);
+    border-radius: var(--radius-md, 8px);
+    padding: var(--space-md, 12px);
+    background: #f8fafc;
+}
+
+.box-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary, #0f172a);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.box-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.next-tip-btn {
+    background: white;
+    border: 1px solid var(--border, #e2e8f0);
+    color: var(--primary, #6366f1);
+    padding: 4px 12px;
+    border-radius: var(--radius-round, 9999px);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all var(--transition, all 0.3s ease);
+}
+
+.next-tip-btn:hover {
+    background: var(--primary, #6366f1);
+    color: white;
+    border-color: var(--primary, #6366f1);
+    transform: rotate(15deg);
+}
+
+.tip-text {
+    font-size: 14px;
+    color: var(--text-secondary, #64748b);
+    line-height: 1.6;
+    font-style: italic;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.foods-grid {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.food-tag {
+    background: white;
+    border: 1px solid var(--border, #e2e8f0);
+    padding: 4px 12px;
+    border-radius: var(--radius-round, 9999px);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary, #0f172a);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nutrition-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border: 1px solid var(--border, #e2e8f0);
+    padding: 10px;
+    border-radius: var(--radius-sm, 6px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nutrition-checkbox,
+.med-checkbox {
+    display: none;
+}
+
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border, #e2e8f0);
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    transition: all var(--transition, all 0.3s ease);
+}
+
+.nutrition-checkbox:checked+.custom-checkbox,
+.med-checkbox:checked+.custom-checkbox {
+    background: var(--success, #10b981);
+    border-color: var(--success, #10b981);
+}
+
+.nutrition-checkbox:checked+.custom-checkbox::after,
+.med-checkbox:checked+.custom-checkbox::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.check-item.item-completed {
+    background-color: var(--primary-light, #e0e7ff);
+    border-color: var(--primary-light, #e0e7ff);
+}
+
+.check-item.item-completed .item-text {
+    text-decoration: line-through;
+    color: var(--text-secondary, #64748b);
+    opacity: 0.7;
+}
+
+.item-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary, #0f172a);
+}

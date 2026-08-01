@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MazzbotEmergency </title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+       
+        <div class="emergency-header">
+            <div class="header-text">
+                <h1><i class="fa-solid fa-triangle-exclamation text-danger-light"></i> Emergency SOS Care</h1>
+                <p>Quick action saves lives. Access immediate hotlines, first-aid instructions, and medical ID.</p>
+            </div>
+            <a href="dashboard.html" class="back-home-btn" target="_blank"><i class="fa-solid fa-house"></i> Back to
+                Dashboard</a>
+        </div>
+
+        <!-- 2. كارت الـ SOS الرئيسي النابض والموقع -->
+        <div class="sos-hero-card">
+            <div class="sos-content">
+                <h2>Emergency SOS Actions</h2>
+                <p>One-tap urgent response for ambulance or immediate family notification.</p>
+
+                <div class="sos-buttons-container">
+                    <!-- 1. زرار الإسعاف الرئيسي الكبير -->
+                    <div class="sos-btn-wrapper">
+                        <a href="tel:123" class="sos-pulse-btn btn-ambulance">
+                            <i class="fa-solid fa-truck-medical"></i>
+                            <span>AMBULANCE</span>
+                        </a>
+                        <span class="sos-label">Call 123</span>
+                    </div>
+
+                    <!-- 2.زرار استغاثة العائلة الأصغر   -->
+                    <div class="sos-btn-wrapper">
+                        <a href="tel:+201000000000" id="call-contact-btn" class="sos-pulse-btn btn-family">
+                            <i class="fa-solid fa-people-roof"></i>
+                            <span>FAMILY SOS</span>
+                        </a>
+                        <span class="sos-label">Carviger </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- أزرار الإجراءات السريعة (الموقع، المستشفى، الصيدلية) -->
+            <div class="quick-actions">
+                <button id="share-location-btn" class="action-card bg-whatsapp">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="action-info">
+                        <strong>Share Live Location</strong>
+                        <span>Send via WhatsApp / SMS</span>
+                    </div>
+                </button>
+
+                <a href="https://www.google.com/maps/search/nearest+hospital" target="_blank"
+                    class="action-card bg-hospital">
+                    <i class="fa-solid fa-hospital"></i>
+                    <div class="action-info">
+                        <strong>Nearest Hospital</strong>
+                        <span>Find route on Google Maps</span>
+                    </div>
+                </a>
+
+                <a href="https://www.google.com/maps/search/nearest+pharmacy" target="_blank"
+                    class="action-card bg-pharmacy">
+                    <i class="fa-solid fa-prescription-bottle-medical"></i>
+                    <div class="action-info">
+                        <strong>Nearest Pharmacy</strong>
+                        <span>Find open pharmacies nearby</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- 3. كارت الهوية الطبية الحرجة (Medical ID) -->
+        <div class="medical-id-card">
+            <div class="card-title">
+                <h2><i class="fa-solid fa-id-card text-danger"></i> Patient Medical ID (Emergency Profile)</h2>
+                <span class="badge-critical">Critical Info</span>
+            </div>
+
+            <div class="medical-id-grid">
+                <div class="id-box">
+                    <span class="id-label">Full Name</span>
+                    <strong class="id-value">Menna Mohamed Hussein</strong>
+                </div>
+
+                <div class="id-box bg-danger-soft">
+                    <span class="id-label">Blood Type</span>
+                    <strong class="id-value text-danger">O +ve</strong>
+                </div>
+
+                <div class="id-box">
+                    <span class="id-label">Chronic Conditions</span>
+                    <strong class="id-value">Diabetes (Type 1), Hypertension</strong>
+                </div>
+
+                <div class="id-box">
+                    <span class="id-label">Known Allergies</span>
+                    <strong class="id-value text-danger">Penicillin, Sulfa Drugs</strong>
+                </div>
+
+                <div class="id-box">
+                    <span class="id-label">Daily Medications</span>
+                    <strong class="id-value">Insulin Glargine, Panadol</strong>
+                </div>
+
+                <div class="id-box">
+                    <span class="id-label">Emergency Family Contact</span>
+                    <strong class="id-value">+20 100 000 0000 (Father)</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. دليل أرقام الطوارئ السريعة -->
+        <div class="hotlines-section">
+            <h2 class="section-title">
+                <i class="fa-solid fa-phone-volume text-danger"></i> Important Emergency Hotlines
+            </h2>
+            <p class="section-subtitle">Click on any hotline to initiate a direct call.</p>
+
+            <div class="hotlines-grid">
+                <!-- الإسعاف -->
+                <div class="hotline-card border-red">
+                    <div class="hotline-icon bg-red-light">
+                        <i class="fa-solid fa-truck-medical text-red"></i>
+                    </div>
+                    <div class="hotline-info">
+                        <h3>Ambulance (الإسعاف)</h3>
+                        <span class="hotline-number">123</span>
+                    </div>
+                    <a href="tel:123" class="call-btn btn-red"><i class="fa-solid fa-phone"></i> Call</a>
+                </div>
+
+                <!-- الشرطة -->
+                <div class="hotline-card border-blue">
+                    <div class="hotline-icon bg-blue-light">
+                        <i class="fa-solid fa-shield-halved text-blue"></i>
+                    </div>
+                    <div class="hotline-info">
+                        <h3>Police (الشرطة)</h3>
+                        <span class="hotline-number">122</span>
+                    </div>
+                    <a href="tel:122" class="call-btn btn-blue"><i class="fa-solid fa-phone"></i> Call</a>
+                </div>
+
+                <!-- الصحة والحروق -->
+                <div class="hotline-card border-orange">
+                    <div class="hotline-icon bg-orange-light">
+                        <i class="fa-solid fa-kit-medical text-orange"></i>
+                    </div>
+                    <div class="hotline-info">
+                        <h3>Health & Burns (الحروق)</h3>
+                        <span class="hotline-number">137</span>
+                    </div>
+                    <a href="tel:137" class="call-btn btn-orange"><i class="fa-solid fa-phone"></i> Call</a>
+                </div>
+
+                <!-- مركز السموم -->
+                <div class="hotline-card border-purple">
+                    <div class="hotline-icon bg-purple-light">
+                        <i class="fa-solid fa-skull-crossbones text-purple"></i>
+                    </div>
+                    <div class="hotline-info">
+                        <h3>Poison Control (السموم)</h3>
+                        <span class="hotline-number">0226855555</span>
+                    </div>
+                    <a href="tel:0226855555" class="call-btn btn-purple"><i class="fa-solid fa-phone"></i> Call</a>
+                </div>
+
+                <!-- المطافئ -->
+                <div class="hotline-card border-darkred">
+                    <div class="hotline-icon bg-darkred-light">
+                        <i class="fa-solid fa-fire-extinguisher text-darkred"></i>
+                    </div>
+                    <div class="hotline-info">
+                        <h3>Fire Dept (المطافئ)</h3>
+                        <span class="hotline-number">180</span>
+                    </div>
+                    <a href="tel:180" class="call-btn btn-darkred"><i class="fa-solid fa-phone"></i> Call</a>
+                </div>
+
+                <!-- الغاز الطبيعي -->
+                <div class="hotline-card border-green">
+                    <div class="hotline-icon bg-green-light">
+                        <i class="fa-solid fa-gas-pump text-green"></i>
+                    </div>
+                    <div class="hotline-info">
+                        <h3>Natural Gas (طوارئ الغاز)</h3>
+                        <span class="hotline-number">129</span>
+                    </div>
+                    <a href="tel:129" class="call-btn btn-green"><i class="fa-solid fa-phone"></i> Call</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. سكشن تحديد نوع الإصابة للحصول على إسعافات سريعة -->
+        <div class="injury-selector-section">
+            <h2 class="section-title-arabic">
+                <i class="fa-solid fa-wrench text-info"></i> حدد نوع الإصابة للحصول على إسعافات سريعة:
+            </h2>
+
+            <!-- أزرار الاختيار -->
+            <div class="injury-buttons-grid">
+                <button class="injury-btn active" data-target="heart">
+                    <span>أزمة قلبية</span>
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </button>
+
+                <button class="injury-btn" data-target="burns">
+                    <span>حروق حرجة</span>
+                    <i class="fa-solid fa-fire-flame-curated"></i>
+                </button>
+
+                <button class="injury-btn" data-target="fractures">
+                    <span>كسور وإصابات</span>
+                    <i class="fa-solid fa-bone"></i>
+                </button>
+
+                <button class="injury-btn" data-target="poison">
+                    <span>تسمم مفاجئ</span>
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                </button>
+            </div>
+
+            <!-- صندوق عرض التفاصيل المتغير -->
+            <div class="aid-display-box" id="aidDisplayBox">
+                <!-- المحتوى بيتغير بالجافاسكريبت أوتوماتيك -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/pages/emergency.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,601 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 24px 0;
+    width: 90%;
+    margin: auto;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ========================================================
+   2. الهيدر الرئيسي لصفحة الطوارئ
+   ======================================================== */
+.emergency-header {
+    background: linear-gradient(135deg, #e11d48, #991b1b);
+    color: white;
+    padding: 24px 32px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.2);
+    min-height: 120px;
+}
+
+.header-text h1 {
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.header-text p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.text-danger-light {
+    color: #fecdd3;
+}
+
+.back-home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    backdrop-filter: blur(4px);
+}
+
+.back-home-btn:hover {
+    background: white;
+    color: #e11d48;
+}
+
+/* ========================================================
+   3. قسم الـ SOS الرئيسي المزدوج والأزرار
+   ======================================================== */
+.sos-hero-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.sos-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 500px;
+}
+
+.sos-content h2 {
+    font-size: 22px;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.sos-content p {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.sos-buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-top: 12px;
+}
+
+.sos-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.sos-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.btn-ambulance {
+    width: 130px;
+    height: 130px;
+    background: #e11d48;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.6);
+    animation: pulse-red 1.6s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+.btn-ambulance i {
+    font-size: 28px;
+}
+
+.btn-family {
+    width: 120px;
+    height: 120px;
+    background: #8b5cf6;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.6);
+    animation: pulse-purple 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+.btn-family i {
+    font-size: 24px;
+}
+
+@keyframes pulse-red {
+    to {
+        box-shadow: 0 0 0 25px rgba(225, 29, 72, 0);
+    }
+}
+
+@keyframes pulse-purple {
+    to {
+        box-shadow: 0 0 0 22px rgba(139, 92, 246, 0);
+    }
+}
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 260px;
+}
+
+.action-card {
+    border: none;
+    padding: 14px 18px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.action-card:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+.bg-whatsapp {
+    background: #25d366;
+}
+
+.bg-hospital {
+    background: #0284c7;
+}
+
+.bg-pharmacy {
+    background: #059669;
+}
+
+.bg-pharmacy:hover {
+    background: #047857;
+}
+
+.action-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.action-info strong {
+    font-size: 14px;
+}
+
+.action-info span {
+    font-size: 11px;
+    opacity: 0.9;
+}
+
+/* ========================================================
+   4. كارت الهوية الطبية الحرجة (Medical ID)
+   ======================================================== */
+.medical-id-card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border-left: 6px solid #e11d48;
+}
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-title h2 {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.badge-critical {
+    background: #ffe4e6;
+    color: #e11d48;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.medical-id-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 12px;
+}
+
+.id-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.bg-danger-soft {
+    background: #fff1f2;
+    border-color: #fecdd3;
+}
+
+.id-label {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.id-value {
+    font-size: 14px;
+    color: #0f172a;
+}
+
+.text-danger {
+    color: #e11d48 !important;
+}
+
+.text-primary {
+    color: #6366f1 !important;
+}
+
+/* ========================================================
+   5. دليل أرقام الطوارئ المباشرة (Hotlines)
+   ======================================================== */
+.hotlines-section {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-subtitle {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+.hotlines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 12px;
+}
+
+.hotline-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.hotline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.hotline-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.hotline-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hotline-info h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.hotline-number {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.call-btn {
+    margin-left: auto;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
+}
+
+.call-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.bg-red-light {
+    background: #ffe4e6;
+}
+
+.text-red {
+    color: #e11d48;
+}
+
+.btn-red {
+    background: #e11d48;
+}
+
+.bg-blue-light {
+    background: #e0f2fe;
+}
+
+.text-blue {
+    color: #0284c7;
+}
+
+.btn-blue {
+    background: #0284c7;
+}
+
+.bg-orange-light {
+    background: #ffedd5;
+}
+
+.text-orange {
+    color: #ea580c;
+}
+
+.btn-orange {
+    background: #ea580c;
+}
+
+.bg-purple-light {
+    background: #f3e8ff;
+}
+
+.text-purple {
+    color: #9333ea;
+}
+
+.btn-purple {
+    background: #9333ea;
+}
+
+.bg-darkred-light {
+    background: #fef2f2;
+}
+
+.text-darkred {
+    color: #991b1b;
+}
+
+.btn-darkred {
+    background: #991b1b;
+}
+
+.bg-green-light {
+    background: #dcfce7;
+}
+
+.text-green {
+    color: #16a34a;
+}
+
+.btn-green {
+    background: #16a34a;
+}
+
+/* ========================================================
+   6. سكشن الإصابات التفاعلي (الفاتح)
+   ======================================================== */
+.injury-selector-section {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    color: #0f172a;
+    direction: rtl;
+    border-right: 6px solid #f43f5e;
+}
+
+.section-title-arabic {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0f172a;
+}
+
+.injury-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.injury-btn {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.injury-btn:hover {
+    background: #fff1f2;
+    border-color: #f43f5e;
+    color: #e11d48;
+}
+
+.injury-btn.active {
+    background: #fff1f2;
+    border: 2px solid #f43f5e;
+    color: #e11d48;
+    box-shadow: 0 2px 8px rgba(244, 63, 94, 0.15);
+}
+
+.aid-display-box {
+    background: #f8fafc;
+    border: 2px solid #f43f5e;
+    border-radius: 14px;
+    padding: 20px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.aid-title {
+    color: #e11d48;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.aid-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.aid-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.5;
+}
+
+.aid-check-icon {
+    width: 22px;
+    height: 22px;
+    background: #10b981;
+    color: white;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Habits - Mazzbot</title>
+    <!-- مكتبة الأيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 1. كارت الهيدر الرئيسي البنفسجي بالسلايدر -->
+        <div class="co">
+            <div class="content-side">
+                <h1 class="title">
+                <i class="fa-solid fa-capsules dose"></i> Healthy Habits
+                </h1>
+                <p class="description">
+                    Good habits build a healthier life. Track your daily wellness, complete challenges, and stay
+                    motivated with Mazzbot.
+                </p>
+            </div>
+
+            <!-- السلايدر المدمج داخل الهيدر -->
+            <div class="header-slider">
+                <div class="slider-track" id="headerSliderTrack">
+                    <div class="slide-item">
+                        <img src="../sport.png">
+                    
+                        <span class="slide-badge">do sports 💧</span>
+                    </div>
+                    <div class="slide-item">
+                        <img src="../drink water.png">
+                         
+                        <span class="slide-badge">Stay Hydrated 💧</span>
+                    </div>
+                    <div class="slide-item">
+                        <img src="../walk.png"
+                            alt="Healthy Habits">
+                        <span class="slide-badge">Daily Walk 🏃‍♀️</span>
+                    </div>
+                    <div class="slide-item">
+                        <img src="../sleep.png"
+                            alt="Healthy Habits">
+                        <span class="slide-badge">Quality Sleep 🌙</span>
+                    </div>
+                    <div class="slide-item">
+                        <img src="../eat.png"
+                            alt="Healthy Habits">
+                        <span class="slide-badge">Eat Healthy 🥗</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. سكشن ملخص العافية اليومي الذكي -->
+        <div class="summary-card">
+            <h2 class="summary-title">
+                <i class="fa-solid fa-seedling plant-icon"></i> Today's Wellness Summary
+            </h2>
+
+            <!-- رسالة التهنئة الكبرى (تظهر عند إتمام جميع العادات) -->
+            <div id="main-congrats-msg" class="main-congrats hidden">
+                🏆 Perfect Day! You've completed all your healthy habits today! Keep it up! 🏆
+            </div>
+
+            <div class="summary-items">
+                <div class="summary-item" id="item-meds">
+                    <i class="fa-solid fa-capsules icon-meds"></i>
+                    <span class="item-label">Meds</span>
+                    <i class="fa-solid fa-circle-xmark status-icon text-danger" id="status-meds"></i>
+                </div>
+
+                <div class="summary-item" id="item-water">
+                    <i class="fa-solid fa-droplet icon-water"></i>
+                    <span class="item-label">Water (<span id="summary-cups">0</span>/8)</span>
+                    <i class="fa-solid fa-circle-xmark status-icon text-danger" id="status-water"></i>
+                </div>
+
+                <div class="summary-item" id="item-walk">
+                    <i class="fa-solid fa-person-walking icon-walk"></i>
+                    <span class="item-label">Walk (<span id="summary-minutes">0</span>m)</span>
+                    <i class="fa-solid fa-circle-xmark status-icon text-danger" id="status-walk"></i>
+                </div>
+
+                <div class="summary-item" id="item-sleep">
+                    <i class="fa-solid fa-bed icon-sleep"></i>
+                    <span class="item-label">Sleep</span>
+                    <i class="fa-solid fa-circle-xmark status-icon text-danger" id="status-sleep"></i>
+                </div>
+            </div>
+        </div>
+        <!-- 3. الصف الأول: كارت متتبع الماء وكارت المشي -->
+        <div class="trackers-grid">
+            <!-- كارت الماء -->
+            <div class="water-card">
+                <div class="water-header">
+                    <i class="fa-solid fa-droplet water-icon"></i>
+                    <div class="water-info">
+                        <h3>Water Tracker</h3>
+                        <p><span id="current-cups">0</span> / 8 Cups</p>
+                    </div>
+                    <div class="actions-container">
+                        <button id="reset-cup-btn" class="btn-secondary reset-btn-custom">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                        <button id="add-cup-btn" class="add-btn">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="cups-container" id="cups-container"></div>
+                <div id="congrats-msg" class="congrats-message hidden">
+                    Great job! Keep going for a better life! 🎉
+                </div>
+            </div>
+
+            <!-- كارت المشي -->
+            <div class="walk-card">
+                <div class="walk-header">
+                    <i class="fa-solid fa-person-walking walk-icon"></i>
+                    <div class="walk-info">
+                        <h3>Walking Tracker</h3>
+                        <p><span id="current-minutes">0</span> / 30 Minutes</p>
+                    </div>
+                    <button id="reset-walk-btn" class="btn-secondary reset-btn-custom" style="margin-left: auto;">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+                <div class="walk-body">
+                    <button id="add-walk-btn" class="btn btn-primary walk-add-btn">
+                        <i class="fa-solid fa-plus"></i> 5 Minutes
+                    </button>
+                </div>
+                <div id="walk-congrats-msg" class="congrats-message hidden">
+                    Amazing! You completed your walking goal today! 🏃‍♀️💨
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. الصف الثاني: كارت الأدوية وكارت النوم -->
+        <div class="trackers-grid">
+            <!-- كارت الأدوية -->
+            <div class="meds-card">
+                <div class="meds-header">
+                    <i class="fa-solid fa-capsules meds-icon" style="color: #f43f5e; font-size: var(--fs-2xl);"></i>
+                    <div class="meds-info">
+                        <h3>Medicines Tracker</h3>
+                        <p>Track your daily doses</p>
+                    </div>
+                    <button id="reset-meds-btn" class="btn-secondary reset-btn-custom" style="margin-left: auto;">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+                <div class="meds-body">
+                    <div class="doses-list">
+                        <label class="check-item dose-item">
+                            <input type="checkbox" class="med-checkbox" data-dose="morning">
+                            <span class="custom-checkbox"></span>
+                            <div class="dose-info">
+                                <span class="item-text">Morning Dose ☀️</span>
+                                <span class="dose-time">Panadol - 08:00 AM</span>
+                            </div>
+                        </label>
+
+                        <label class="check-item dose-item">
+                            <input type="checkbox" class="med-checkbox" data-dose="evening">
+                            <span class="custom-checkbox"></span>
+                            <div class="dose-info">
+                                <span class="item-text">Evening Dose 🌙</span>
+                                <span class="dose-time">Insulin / Vitamin - 08:00 PM</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div id="meds-congrats-msg" class="congrats-message hidden">
+                    All Doses Taken Today! Stay Safe! 🛡️
+                </div>
+            </div>
+
+            <!-- كارت النوم -->
+            <div class="sleep-card">
+                <div class="sleep-header">
+                    <i class="fa-solid fa-moon sleep-icon"></i>
+                    <div class="sleep-info">
+                        <h3>Sleep Goal</h3>
+                        <p><span id="current-sleep-hours">0</span> / 8 Hours</p>
+                    </div>
+                    <button id="reset-sleep-btn" class="btn-secondary reset-btn-custom" style="margin-left: auto;">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+                <div class="sleep-body">
+                    <button id="add-sleep-hour-btn" class="btn btn-primary sleep-add-btn">
+                        <i class="fa-solid fa-plus"></i> Add 1 Hour Sleep
+                    </button>
+                </div>
+                <div class="benefits-container">
+                    <button id="toggle-benefits-btn" class="benefits-toggle-btn">
+                        <i class="fa-solid fa-lightbulb"></i> View Sleep Benefits
+                    </button>
+                    <div id="benefits-content" class="benefits-text hidden">
+                        <p class="hadith">قال رسول الله ﷺ: "بُورِكَ لِأُمَّتِي فِي بُكُورِهَا".</p>
+                        <p class="science">💡 تنظيم النوم والاستيقاظ مبكراً يزيد من التركيز، ويحسن الصحة النفسية
+                            والجسدية.</p>
+                    </div>
+                </div>
+                <div id="sleep-congrats-msg" class="congrats-message hidden">
+                    Good morning! Awesome sleep quality today! 🌌
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. سكشن كروت الأمراض المزمنة (Horizontal Scroll) -->
+        <div class="chronic-diseases-section">
+            <div class="chronic-header">
+                <h2><i class="fa-solid fa-heart-pulse text-primary"></i> Personalized Health Tips</h2>
+                <div class="header-controls">
+                    <button id="scroll-left-btn" class="scroll-arrow-btn" aria-label="Previous"><i
+                            class="fa-solid fa-chevron-left"></i></button>
+                    <button id="scroll-right-btn" class="scroll-arrow-btn" aria-label="Next"><i
+                            class="fa-solid fa-chevron-right"></i></button>
+                    <button id="view-all-btn" class="view-all-link">View All <i
+                            class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="disease-cards-track" id="diseaseCardsTrack">
+                <div class="disease-card bg-red">
+                    <div class="disease-card-header">
+                        <i class="fa-solid fa-droplet icon-diabetes"></i>
+                        <h3>Diabetes Tips</h3>
+                    </div>
+                    <ul class="disease-tips-list">
+                        <li>Check blood sugar regularly.</li>
+                        <li>Eat balanced meals on time.</li>
+                        <li>Avoid sugary drinks.</li>
+                    </ul>
+                    <span class="card-tag">Chronic Care</span>
+                </div>
+
+                <div class="disease-card bg-purple">
+                    <div class="disease-card-header">
+                        <i class="fa-solid fa-heart-pulse icon-pressure"></i>
+                        <h3>Blood Pressure</h3>
+                    </div>
+                    <ul class="disease-tips-list">
+                        <li>Reduce daily salt intake.</li>
+                        <li>Stay hydrated with water.</li>
+                        <li>Measure pressure regularly.</li>
+                    </ul>
+                    <span class="card-tag">Cardiovascular</span>
+                </div>
+
+                <div class="disease-card bg-pink">
+                    <div class="disease-card-header">
+                        <i class="fa-solid fa-heart-circle-check icon-heart"></i>
+                        <h3>Heart Health</h3>
+                    </div>
+                    <ul class="disease-tips-list">
+                        <li>Avoid smoking & alcohol.</li>
+                        <li>Walk at least 30 mins daily.</li>
+                        <li>Take medications on time.</li>
+                    </ul>
+                    <span class="card-tag">Lifestyle</span>
+                </div>
+
+                <div class="disease-card bg-blue">
+                    <div class="disease-card-header">
+                        <i class="fa-solid fa-lungs icon-asthma"></i>
+                        <h3>Asthma Care</h3>
+                    </div>
+                    <ul class="disease-tips-list">
+                        <li>Avoid dust & cold air.</li>
+                        <li>Always carry your inhaler.</li>
+                        <li>Follow doctor's plan.</li>
+                    </ul>
+                    <span class="card-tag">Respiratory</span>
+                </div>
+
+                <div class="disease-card bg-yellow">
+                    <div class="disease-card-header">
+                        <i class="fa-solid fa-vial-circle-check icon-cholesterol"></i>
+                        <h3>Cholesterol</h3>
+                    </div>
+                    <ul class="disease-tips-list">
+                        <li>Limit trans & saturated fats.</li>
+                        <li>Eat oat fiber & raw nuts.</li>
+                        <li>Check lipid profile yearly.</li>
+                    </ul>
+                    <span class="card-tag">Blood Health</span>
+                </div>
+
+                <div class="disease-card bg-green">
+                    <div class="disease-card-header">
+                        <i class="fa-solid fa-filter icon-kidney"></i>
+                        <h3>Kidney Health</h3>
+                    </div>
+                    <ul class="disease-tips-list">
+                        <li>Drink 8+ cups of water.</li>
+                        <li>Avoid overuse of painkillers.</li>
+                        <li>Control blood sugar levels.</li>
+                    </ul>
+                    <span class="card-tag">Vital Care</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. الصف الأخير: كارت التغذية الذكي بـ Full Width -->
+        <div class="nutrition-section">
+            <div class="nutrition-card">
+                <div class="nutrition-header">
+                    <i class="fa-solid fa-utensils nutrition-icon"></i>
+                    <div class="nutrition-info">
+                        <h3>Healthy Nutrition Guide</h3>
+                        <p>Personalized dietary tips & checklist</p>
+                    </div>
+                </div>
+
+                <div class="nutrition-box tip-box">
+                    <div class="box-title-container">
+                        <div class="box-title"><i class="fa-solid fa-lightbulb text-warning"></i> Today's Nutrition Tip
+                        </div>
+                        <button id="next-tip-btn" class="next-tip-btn">
+                            <i class="fa-solid fa-rotate"></i> Next Tip
+                        </button>
+                    </div>
+                    <p id="nutrition-tip-text" class="tip-text">Loading your daily healthy tip...</p>
+                </div>
+
+                <div class="nutrition-box foods-box">
+                    <div class="box-title"><i class="fa-solid fa-apple-whole text-danger"></i> Recommended Foods For You
+                    </div>
+                    <div id="recommended-foods-container" class="foods-grid"></div>
+                </div>
+
+                <div class="nutrition-box checklist-box">
+                    <div class="box-title"><i class="fa-solid fa-list-check text-primary"></i> Today's Nutrition
+                        Checklist</div>
+                    <div class="nutrition-checklist">
+                        <label class="check-item">
+                            <input type="checkbox" class="nutrition-checkbox" data-index="0">
+                            <span class="custom-checkbox"></span>
+                            <span class="item-text">Ate a healthy breakfast 🍳</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="nutrition-checkbox" data-index="1">
+                            <span class="custom-checkbox"></span>
+                            <span class="item-text">Had fresh fruits today 🍎</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="nutrition-checkbox" data-index="2">
+                            <span class="custom-checkbox"></span>
+                            <span class="item-text">Included vegetables in meals 🥦</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="nutrition-checkbox" data-index="3">
+                            <span class="custom-checkbox"></span>
+                            <span class="item-text">Avoided sugary & carbonated drinks ❌🥤</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/pages/habits.js"></script>
+</body>
+
+</html>
