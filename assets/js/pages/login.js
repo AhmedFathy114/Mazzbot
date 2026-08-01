@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 provider: "google",
 
                 options: {
-                    redirectTo: "http://127.0.0.1:5500/app.html"
+                    redirectTo: `${window.location.origin}/app.html`
                 }
 
             });
