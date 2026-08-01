@@ -1,15 +1,20 @@
+html{
+
+    scroll-behavior: smooth;
+
+}
 body{
 
     font-family:var(--font-family);
-
     background:var(--background);
-
     color:var(--text-primary);
-
-    transition:var(--transition);
+ transition:
+        background-color .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
 
 }
-
 .container{
 
     width:min(var(--container-width),90%);
