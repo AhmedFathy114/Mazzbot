@@ -1,12 +1,167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MazzBot — App</title>
+
+    <!-- Main stylesheet (imports everything) -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-    
+
+    <!-- ============================================================
+         APP LAYOUT
+         Structure: [Sidebar] [Main Area (Navbar on top, Content below)]
+    ============================================================ -->
+
+    <div class="app-layout">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar" id="sidebar">
+
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <span class="sidebar-logo-text">MazzBot</span>
+            </div>
+
+            <!-- Navigation Links
+                 data-page="xxx" must match the key in ROUTES inside router.js -->
+            <nav class="sidebar-nav">
+
+                <a href="#dashboard" class="sidebar-link" data-page="dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#medicines" class="sidebar-link" data-page="medicines">
+                    <i class="fa-solid fa-pills"></i>
+                    <span>Medicines</span>
+                </a>
+
+                <a href="#habits" class="sidebar-link" data-page="habits">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <span>Habits</span>
+                </a>
+
+                <a href="#profile" class="sidebar-link" data-page="profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </a>
+
+                <a href="#report" class="sidebar-link" data-page="report">
+                    <i class="fa-solid fa-file-medical"></i>
+                    <span>Report</span>
+                </a>
+
+                <a href="#emergency" class="sidebar-link" data-page="emergency">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Emergency</span>
+                </a>
+
+            </nav>
+
+            <!-- Sidebar Footer: Theme Toggle + Logout -->
+            <div class="sidebar-footer">
+
+                <button class="sidebar-theme-btn" id="themeToggle">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                    <span id="themeLabel">Dark Mode</span>
+                </button>
+
+                <button class="sidebar-logout-btn" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+        </aside>
+
+        <!-- ===== MAIN AREA ===== -->
+        <div class="app-main">
+
+            <!-- Top Navbar -->
+            <header class="navbar" id="navbar">
+
+                <!-- Hamburger button — only visible on mobile -->
+                <button class="navbar-hamburger" id="hamburgerBtn" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <!-- Page title — updated automatically by router.js -->
+                <h1 class="navbar-title" id="pageTitle">Dashboard</h1>
+
+                <!-- Right side: user info -->
+                <div class="navbar-right">
+                    <div class="navbar-user">
+                        <div class="navbar-avatar" id="userAvatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <span class="navbar-username" id="userName">User</span>
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- Page Content
+                 The router fetches partials/*.html and injects them here -->
+            <main class="app-content" id="content">
+                <div class="content-loader">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <!-- Mobile overlay — tapping it closes the sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- ============================================================
+         SCRIPTS — load order matters!
+         1. supabase.js  → sets up the Supabase client
+         2. router.js    → handles page navigation
+         3. theme.js     → handles dark/light mode
+         4. page scripts → each page's logic (loaded here so the router can call them)
+         5. app.js       → starts everything (must be last)
+    ============================================================ -->
+
+    <!-- Supabase SDK from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Config -->
+    <script src="./assets/js/config/supabase.js"></script>
+
+    <!-- Core modules -->
+    <script src="./assets/js/router/router.js"></script>
+    <script src="./assets/js/utils/theme.js"></script>
+
+    <!-- Page-specific scripts
+         Add new page scripts here as you build them.
+         Each file should define a global object like: window.DashboardPage = { init() { ... } } -->
+    <script src="./assets/js/pages/dashboard.js"></script>
+    <script src="./assets/js/pages/medicines.js"></script>
+    <script src="./assets/js/pages/habits.js"></script>
+    <script src="./assets/js/pages/profile.js"></script>
+    <script src="./assets/js/pages/report.js"></script>
+    <script src="./assets/js/pages/emergency.js"></script>
+
+    <!-- App bootstrap — must be last -->
+    <script src="./assets/js/app.js"></script>
+
 </body>
+
 </html>
